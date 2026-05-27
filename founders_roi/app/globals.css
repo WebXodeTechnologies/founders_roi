@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ==========================================================================
+   🎨 Tailwind v4 Utilities & Component Directives
+   ========================================================================== */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    font-family: var(--font-outfit), sans-serif;
+    background-color: #ffffff;
+    color: #0f172a;
+    line-height: 1.6;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sora), sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #0f172a;
+  }
+
+  p {
+    color: #64748b;
+    font-size: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ==========================================================================
+   🧱 Reusable SaaS Components
+   ========================================================================== */
+
+.btn-primary {
+  @apply px-6 py-3 rounded-xl bg-blue-600 text-white font-medium transition-all duration-300;
+}
+
+.btn-primary:hover {
+  @apply bg-blue-700;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #1d4ed8, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section {
+  @apply max-w-7xl mx-auto px-6 py-20;
+}
+
+.card {
+  @apply p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition;
 }
