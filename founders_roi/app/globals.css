@@ -55,3 +55,7 @@
 .card {
   @apply p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition;
 }
+
+html {
+   scroll-behavior: smooth;
+}
