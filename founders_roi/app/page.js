@@ -3,7 +3,7 @@ import Hero from "./components/common/Hero";
 
 export default function Home() {
   return (
-    <section>
+    <section className="py-5">
       <Hero />
     
       

@@ -23,14 +23,8 @@ export default function Navbar() {
       <nav className="w-full max-w-7xl flex items-center justify-between bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(255,255,255,0.05)] rounded-2xl px-4 lg:px-6 h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="relative w-10 h-10 lg:w-12 lg:h-12 overflow-hidden rounded-xl">
-            <Image
-              src={Logo}
-              alt="Logo"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 40px, 48px"
-            />
+          <div className="relative w-20 h-20  overflow-hidden rounded-xl">
+            <Image src={Logo} alt="Logo" fill className="object-cover" />
           </div>
           <div className="flex flex-col text-white">
             <span className="text-lg lg:text-xl font-bold tracking-wider">
