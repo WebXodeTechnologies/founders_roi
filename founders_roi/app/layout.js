@@ -1,6 +1,7 @@
 import { Outfit, Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
 
 // ✅ Fonts (Optimized)
 const outfit = Outfit({
@@ -88,6 +89,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full">
         <Navbar />
         {children}
+        <Footer/>
 
         {/* ✅ Structured Data (SEO Boost) */}
         <script
