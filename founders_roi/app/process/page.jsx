@@ -4,32 +4,46 @@ import { motion } from "framer-motion";
 import { FaLayerGroup, FaChartLine, FaRocket } from "react-icons/fa";
 
 export default function ProcessPage() {
+  /* ================= CARDS ================= */
   const cards = [
     {
-      icon: <FaLayerGroup size={28} />,
-      title: "Layer 01",
-      desc: "Build a strong foundation with clear positioning and messaging.",
+      icon: <FaLayerGroup size={24} />,
+      title: "Platform Optimization",
+      desc: "Scaling the right channels with precision and intent-driven systems.",
     },
     {
-      icon: <FaChartLine size={28} />,
-      title: "Layer 02",
-      desc: "Scale with data-driven marketing and performance systems.",
+      icon: <FaChartLine size={24} />,
+      title: "Creative Optimization",
+      desc: "Emotion-driven creative systems engineered for conversion.",
     },
     {
-      icon: <FaRocket size={28} />,
-      title: "Layer 03",
-      desc: "Accelerate growth with automation and creative expansion.",
+      icon: <FaRocket size={24} />,
+      title: "Campaign Optimization",
+      desc: "Continuous performance optimization focused on profitability and scale.",
     },
+  ];
+
+  /* ================= TIMELINE ================= */
+  const steps = [
+    "Enquiry",
+    "Discovery Call",
+    "Brand Strategy & Growth Planning",
+    "Project Kickoff",
+    "Brand & Infrastructure Setup",
+    "Multi-Platform Execution",
+    "Lead & Sales Optimization",
+    "Scaling & Growth",
+    "Long-Term Partnership",
   ];
 
   return (
     <div className="bg-black text-white">
-      {/* ================= PROCESS SECTION ================= */}
+      {/* ================= 3 LAYER SECTION ================= */}
       <section className="py-24 px-6 md:px-16">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
-          {/* LEFT SIDE (STICKY) */}
+          {/* LEFT */}
           <div className="md:sticky md:top-32 h-fit">
-            <p className="text-orange-500 font-semibold mb-3 tracking-wide uppercase">
+            <p className="text-orange-500 font-semibold mb-3 uppercase tracking-wide">
               Our Process
             </p>
 
@@ -39,29 +53,29 @@ export default function ProcessPage() {
             </h2>
 
             <p className="text-gray-400 text-lg leading-relaxed">
-              We don’t rely on guesswork. Our structured 3-layer system ensures
-              your brand grows with clarity, consistency, and scalability.
+              We don’t rely on guesswork. Our structured system ensures your
+              brand grows with clarity, consistency, and scalability.
             </p>
           </div>
 
-          {/* RIGHT SIDE (CARDS) */}
+          {/* RIGHT */}
           <div className="space-y-8">
             {cards.map((card, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: -60 }}
+                initial={{ opacity: 0, y: -40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -15 }}
+                whileHover={{ y: -10 }}
                 transition={{ duration: 0.5, delay: i * 0.2 }}
-                className="group bg-zinc-900 border border-zinc-800 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:bg-orange-500 hover:text-black"
+                className="group bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:bg-orange-500 hover:text-black transition"
               >
-                <div className="mb-4 text-orange-500 group-hover:text-black transition">
+                <div className="mb-4 text-orange-500 group-hover:text-black">
                   {card.icon}
                 </div>
 
                 <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
 
-                <p className="text-gray-400 group-hover:text-black transition">
+                <p className="text-gray-400 group-hover:text-black">
                   {card.desc}
                 </p>
               </motion.div>
@@ -70,61 +84,86 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* ================= FEATURED CASE STUDY ================= */}
-      <section className="bg-black text-white py-24 px-6 md:px-16">
+      {/* ================= TIMELINE SECTION ================= */}
+      <section className="py-24 px-6 md:px-16 bg-black">
+        <div className="max-w-5xl mx-auto text-center mb-16">
+          <p className="text-orange-500 font-semibold mb-3 tracking-wide">
+            EXECUTION PROCESS
+          </p>
+
+          <h2 className="text-3xl md:text-5xl font-bold">
+            From <span className="text-orange-500">Enquiry to Scale</span>
+          </h2>
+        </div>
+
+        <div className="relative max-w-3xl mx-auto">
+          {/* Line */}
+          <div className="absolute left-4 top-0 w-[2px] h-full bg-zinc-700" />
+
+          <div className="space-y-10">
+            {steps.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="flex items-start gap-6"
+              >
+                {/* Circle */}
+                <div className="w-8 h-8 flex items-center justify-center rounded-full bg-orange-500 text-black font-bold z-10">
+                  {index + 1}
+                </div>
+
+                {/* Content */}
+                <div className="bg-zinc-900 border border-zinc-800 p-5 rounded-xl w-full hover:border-orange-500 transition">
+                  {step}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= CASE STUDY ================= */}
+      <section className="py-24 px-6 md:px-16">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          {/* LEFT SIDE */}
-          <div className="md:sticky md:top-32 h-fit">
-            <p className="text-orange-500 font-semibold mb-3 tracking-wide">
+          {/* LEFT */}
+          <div>
+            <p className="text-orange-500 font-semibold mb-3">
               FEATURED CASE STUDY
             </p>
 
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
               Engineering Scalable{" "}
               <span className="text-orange-500">Growth Systems</span>
             </h2>
 
-            <p className="text-gray-400 leading-relaxed text-lg">
-              We restructured fragmented marketing efforts into a unified
-              performance system — combining data, creative strategy, and
-              precision targeting to unlock consistent, scalable growth.
+            <p className="text-gray-400 text-lg">
+              We transformed fragmented marketing into a unified performance
+              system combining data, creative strategy, and precision targeting.
             </p>
           </div>
 
-          {/* RIGHT SIDE */}
+          {/* RIGHT */}
           <div className="space-y-6">
-            {/* CARD 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-orange-500 transition"
-            >
-              <h3 className="text-gray-400 mb-2">Revenue Growth</h3>
-              <p className="text-4xl font-bold text-orange-500">+420%</p>
-            </motion.div>
-
-            {/* CARD 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-orange-500 transition"
-            >
-              <h3 className="text-gray-400 mb-2">Conversion Lift</h3>
-              <p className="text-4xl font-bold text-orange-500">+280%</p>
-            </motion.div>
-
-            {/* CARD 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-orange-500 transition"
-            >
-              <h3 className="text-gray-400 mb-2">Audience Expansion</h3>
-              <p className="text-4xl font-bold text-orange-500">12M+</p>
-            </motion.div>
+            {[
+              { title: "Revenue Growth", value: "+420%" },
+              { title: "Conversion Lift", value: "+280%" },
+              { title: "Audience Expansion", value: "12M+" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.2 }}
+                className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-orange-500"
+              >
+                <h3 className="text-gray-400 mb-2">{item.title}</h3>
+                <p className="text-4xl font-bold text-orange-500">
+                  {item.value}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
