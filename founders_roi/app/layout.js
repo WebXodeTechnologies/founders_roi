@@ -82,14 +82,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${outfit.variable} ${sora.variable} h-full antialiased`}
-    >
-      <body className="min-h-full">
+    <html lang="en" className="h-full antialiased scroll-smooth">
+      {/* FIX: Bind font variables directly to the body to clear preload warnings */}
+      <body className={`${outfit.variable} ${sora.variable} min-h-full bg-bg-primary text-white`}>
         <Navbar />
         {children}
-        <Footer/>
+        <Footer />
 
         {/* ✅ Structured Data (SEO Boost) */}
         <script

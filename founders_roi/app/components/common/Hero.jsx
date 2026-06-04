@@ -5,88 +5,79 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section
-      className="relative w-full min-h-screen bg-black text-white flex items-center overflow-hidden pt-28 md:pt-24"
-      aria-label="Business Growth Consulting and Digital Transformation Hero Section"
-    >
-      {/* ================= BACKGROUND GLOW ================= */}
-      <div className="absolute top-10 right-0 md:top-20 w-[240px] md:w-[500px] h-[240px] md:h-[500px] bg-orange-500 opacity-20 blur-[90px] md:blur-[140px] rounded-full" />
-
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
-        {/* ================= LEFT CONTENT ================= */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center md:text-left"
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-28 md:pt-24">
+      {/* ================= BACKGROUND VIDEO ================= */}
+      <div className="absolute inset-0 -z-10 bg-black">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          poster="/video-fallback.jpg"
         >
-          {/* SEO supporting line (secondary keywords) */}
-          <p className="text-orange-500 font-medium mb-4 tracking-wide text-sm md:text-base">
+          <source src="/bg-vdo/1.mp4" type="video/mp4" />
+        </video>
+        
+        {/* Premium Gradient Overlay: dark at bottom/sides, transparent in center */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-black/30" />
+      </div>
+
+      {/* ================= CONTENT CONTAINER ================= */}
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        
+        {/* LEFT CONTENT */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center md:text-left z-10"
+        >
+          <p className="text-orange-500 font-semibold mb-4 tracking-widest uppercase text-sm">
             Business Growth Consulting
           </p>
-
-          {/* PRIMARY H1 (SEO MAIN KEYWORD) */}
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight mb-4">
-            Scalable
-            <span className="text-orange-500 ml-1">Business Growth</span>
-            <span className="ml-1">Solutions</span>
+          <h1 className="text-4xl md:text-7xl font-bold leading-tight mb-6 text-white">
+            Scalable <br />
+            <span className="text-orange-500">Business Growth</span> Solutions
           </h1>
-
-          {/* SEO-rich description (natural keywords, no stuffing) */}
-          <p className="text-gray-400 text-base md:text-lg mb-4 max-w-xl mx-auto md:mx-0">
-            We help businesses scale through revenue growth consulting, B2B
-            strategy, and digital transformation. As a custom software
-            development company in South India, we build scalable solutions,
-            mobile apps, and end-to-end systems for startups and enterprises.
+          <p className="text-gray-300 text-lg mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+            We help businesses scale through revenue growth consulting and digital transformation. Building robust systems for the modern enterprise.
           </p>
 
-          {/* ================= CTA BUTTONS ================= */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <motion.button
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-orange-500 hover:bg-orange-600 text-black font-semibold px-6 py-3 rounded-xl transition w-full sm:w-auto"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-full transition-all"
             >
               Start Scaling
             </motion.button>
-
             <motion.button
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="border border-gray-700 hover:border-orange-500 px-6 py-3 rounded-xl transition w-full sm:w-auto"
+              className="border border-white/20 hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-full transition-all"
             >
               Explore Services
             </motion.button>
           </div>
         </motion.div>
 
-        {/* ================= RIGHT IMAGE ================= */}
+        {/* RIGHT IMAGE (Maintains floating animation) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative flex justify-center md:justify-end"
+          transition={{ duration: 0.8 }}
+          className="relative hidden md:flex justify-end"
         >
-          {/* Background Glow */}
-          <div className="absolute  bg-orange-500 opacity-20 blur-[80px] md:blur-[120px] rounded-full" />
-
-          {/* Floating Image */}
           <motion.div
-            animate={{ y: [0, -12, 0] }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="relative w-auto mr-5"
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           >
             <Image
               src="/hero_image.png"
-              alt="Business growth dashboard showing revenue analytics and digital transformation insights"
-              width={620}
-              height={620}
-              priority
-              className="w-full  rounded-2xl shadow-2xl border border-gray-800"
+              alt="Dashboard"
+              width={600}
+              height={600}
+              className="rounded-3xl shadow-[0_0_50px_-12px_rgba(249,115,22,0.3)] border border-white/10"
             />
           </motion.div>
         </motion.div>

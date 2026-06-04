@@ -1,55 +1,50 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    /* Base Obsidian Theme */
-    --bg-primary: #030202;
-    --bg-card: #0a0a0a;
-    --text-main: #ffffff;
-    --text-muted: #94a3b8;
-    --border: #1f1f1f;
+@theme {
+  /* Base Obsidian Theme Definitions mapped directly into Tailwind's pipeline */
+  --color-bg-primary: #030202;
+  --color-bg-card: #0a0a0a;
+  --color-text-main: #ffffff;
+  --color-text-muted: #94a3b8;
+  --color-border-custom: #1f1f1f;
 
-    /* Accent & Brand Colors */
-    --accent: #BFF747; /* The Green growth pop */
-    --primary: #7c3aed; /* SaaS Purple */
-    --secondary: #06b6d4; /* SaaS Cyan */
-    
-    /* Gradients */
-    --gradient-tech: linear-gradient(135deg, #7c3aed, #06b6d4);
-  }
-
-  body {
-    background-color: var(--bg-primary);
-    color: var(--text-main);
-    font-family: var(--font-outfit), sans-serif;
-    transition: background-color 0.3s ease;
-  }
-
-  h1, h2, h3 { 
-    font-family: var(--font-sora), sans-serif;
-    color: var(--text-main);
-  }
-}
-
-@layer utilities {
-  /* The High-Impact Growth Button */
-  .btn-primary {
-    @apply px-6 py-3 rounded-xl bg-[var(--accent)] text-black font-bold hover:brightness-110 transition-all;
-  }
+  /* Accent & Brand Colors */
+  --color-accent: #BFF747; /* The Green growth pop */
+  --color-primary-saas: #7c3aed; /* SaaS Purple */
+  --color-secondary-saas: #06b6d4; /* SaaS Cyan */
   
-  /* The Premium SaaS Card */
-  .card {
-    @apply p-8 rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] hover:border-[var(--primary)] transition-all;
-  }
-
-  /* Tech Gradient for Branding */
-  .gradient-text {
-    background: var(--gradient-tech);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+  /* Gradients */
+  --background-image-gradient-tech: linear-gradient(135deg, #7c3aed, #06b6d4);
 }
 
-html { 
-  scroll-behavior: smooth; 
+/* Base Element Overrides */
+@utility html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-main);
+  font-family: var(--font-outfit), sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+  font-family: var(--font-sora), sans-serif;
+  color: var(--color-text-main);
+}
+
+/* Custom Components & Utilities using Tailwind v4 @apply structures */
+@utility btn-primary {
+  @apply px-6 py-3 rounded-xl bg-(--color-accent) text-black font-bold hover:brightness-110 transition-all;
+}
+
+@utility card {
+  @apply p-8 rounded-2xl border border-(--color-border-custom) bg-(--color-bg-card) hover:border-(--color-primary-saas) transition-all;
+}
+
+@utility gradient-text {
+  background: var(--background-image-gradient-tech);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
