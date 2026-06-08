@@ -26,7 +26,7 @@ const services = [
   },
   {
     icon: <Briefcase size={28} />,
-    title: "Business Dev",
+    title: "Business Development",
     desc: "Strategic partnerships and growth opportunities to expand your business reach.",
   },
 ];
