@@ -14,7 +14,7 @@ import {
 const services = [
   {
     icon: <Megaphone size={28} />,
-    title: "Performance Marketing",
+    title: "Precise Marketing",
     desc: "Data-driven campaigns that generate leads and revenue growth.",
   },
   {
@@ -24,7 +24,7 @@ const services = [
   },
   {
     icon: <LineChart size={28} />,
-    title: "Sales Funnels",
+    title: "Core Sales",
     desc: "High-converting funnels designed to turn visitors into customers.",
   },
   {
