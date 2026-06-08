@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Hero from "./components/common/Hero";
 import About from "./components/sections/About";
 import HeroAbout from "./components/sections/HeroAbout";
@@ -26,10 +26,6 @@ export default function Home() {
       <Testimonials/>
       <CTA/>
       <Contact/>
-      
-     
-    
-      
     </section>
   );
 }
