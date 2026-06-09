@@ -55,18 +55,21 @@ export default function Navbar() {
         }`}
       >
         <nav 
-          className={`mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-zinc-950/40 px-6 backdrop-blur-xl transition-all duration-300 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] ${
-            scrolled ? "h-16 max-w-5xl border-white/20 bg-zinc-950/70" : "h-20"
+          className={`mx-auto flex max-w-7xl items-center justify-between rounded-full px-6 transition-all duration-300 border backdrop-blur-[12px] ${
+            scrolled 
+              ? "h-20 max-w-5xl bg-zinc-950/60 border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]" 
+              : "h-30 bg-zinc-950/30 border-white/5 shadow-none"
           }`}
         >
+          <div className="absolute inset-0 rounded-full border border-white/10 pointer-events-none" />
           {/* BRAND LOGO AREA */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-20 w-20 transition-transform duration-300 group-hover:scale-105 md:h-12 md:w-12">
+            <div className="relative transition-transform duration-300 group-hover:scale-105">
               <Image
                 src={Logo}
                 alt="Founders ROI"
-                width={50}
-                height={50}
+                width={100}
+                height={100}
                 priority
                 className="object-contain"
               />
@@ -92,8 +95,8 @@ export default function Navbar() {
                   href={item.path}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
-                    isActive ? "text-white" : "text-zinc-400 hover:text-white"
+                  className={`relative rounded-full px-4 py-2 text-md font-semibold transition-colors duration-200 ${
+                    isActive ? "text-white" : "text-zinc-500 hover:text-white"
                   }`}
                 >
                   {hoveredIndex === index && (
