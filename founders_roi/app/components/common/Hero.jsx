@@ -5,28 +5,15 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-28 md:pt-24">
-      {/* ================= BACKGROUND VIDEO ================= */}
-      <div className="absolute inset-0 -z-10 bg-black">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover object-center"
-          poster="/video-fallback.jpg"
-        >
-          <source src="/bg-vdo/1.mp4" type="video/mp4" />
-        </video>
-        
-        {/* Premium Gradient Overlay: dark at bottom/sides, transparent in center */}
+    <div className="relative w-full min-h-screen flex items-center bg-black overflow-hidden">
+      {/* ================= BACKGROUND ================= */}
+      <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* ================= CONTENT CONTAINER ================= */}
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        
         {/* LEFT CONTENT */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -37,12 +24,16 @@ export default function Hero() {
           <p className="text-orange-500 font-semibold mb-4 tracking-widest uppercase text-sm">
             Business Growth Consulting
           </p>
+
           <h1 className="text-4xl md:text-7xl font-bold leading-tight mb-6 text-white">
             Scalable <br />
             <span className="text-orange-500">Business Growth</span> Solutions
           </h1>
+
           <p className="text-gray-300 text-lg mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
-            We help businesses scale through revenue growth consulting and digital transformation. Building robust systems for the modern enterprise.
+            We help businesses scale through revenue growth consulting and
+            digital transformation. Building robust systems for the modern
+            enterprise.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -52,6 +43,7 @@ export default function Hero() {
             >
               Start Scaling
             </motion.button>
+
             <motion.button
               whileHover={{ scale: 1.05 }}
               className="border border-white/20 hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-full transition-all"
@@ -61,7 +53,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* RIGHT IMAGE (Maintains floating animation) */}
+        {/* RIGHT IMAGE */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -82,6 +74,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

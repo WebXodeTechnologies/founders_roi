@@ -5,9 +5,9 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Contact() {
   return (
-    <section className="w-full bg-black text-white py-24 px-6 md:px-16 relative overflow-hidden">
+    <section className="relative py-20 px-6 md:px-16 bg-black text-white overflow-hidden">
       {/* BACKGROUND GLOW */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-orange-500/5 blur-3xl opacity-50" />
+      <div className="absolute top-0 right-0 w-72 h-72 bg-orange-500 opacity-20 blur-3xl rounded-full" />
 
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
         {/* LEFT SIDE */}
@@ -49,55 +49,67 @@ export default function Contact() {
           </div>
         </motion.div>
 
-        {/* RIGHT SIDE - FORM */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8"
+          initial={{ opacity: 0, x: 80, scale: 0.95 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          whileHover={{ scale: 1.02 }}
+          className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-xl hover:shadow-orange-500/10 transition-all duration-500"
         >
           <form className="space-y-6">
-            {/* NAME */}
-            <div>
-              <label className="text-sm text-gray-400 mb-2 block">
-                Full Name
-              </label>
-              <input
-                type="text"
-                placeholder="Enter your name"
-                className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 focus:border-orange-500 outline-none text-white"
-              />
-            </div>
-
+            {/* FULL NAME */}
+            <input
+              type="text"
+              placeholder="Full Name"
+              className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 outline-none transition-all"
+            />
             {/* EMAIL */}
-            <div>
-              <label className="text-sm text-gray-400 mb-2 block">Email</label>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 focus:border-orange-500 outline-none text-white"
-              />
-            </div>
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 outline-none transition-all"
+            />
+            <div className="relative w-full">
+              <select
+                className="w-full px-4 py-3 pr-10 rounded-lg bg-black border border-white/10 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 outline-none transition-all appearance-none"
+                defaultValue=""
+              >
+                <option value="" disabled className="bg-black text-gray-400">
+                  Select Service
+                </option>
+                <option className="bg-black text-white">
+                  Precise Marketing
+                </option>
+                <option className="bg-black text-white">
+                  Branding & Positioning
+                </option>
+                <option className="bg-black text-white">Core Sales</option>
+                <option className="bg-black text-white">
+                  Automation Systems
+                </option>
+                <option className="bg-black text-white">App Development</option>
+                <option className="bg-black text-white">Web Development</option>
+              </select>
 
+              {/* CUSTOM ARROW */}
+              <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-white">
+                ▼
+              </div>
+            </div>{" "}
             {/* MESSAGE */}
-            <div>
-              <label className="text-sm text-gray-400 mb-2 block">
-                Message
-              </label>
-              <textarea
-                rows="4"
-                placeholder="Tell us about your project"
-                className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 focus:border-orange-500 outline-none text-white"
-              ></textarea>
-            </div>
-
+            <textarea
+              rows="4"
+              placeholder="Your Message"
+              className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 outline-none transition-all"
+            ></textarea>
             {/* BUTTON */}
-            <button
-              type="submit"
-              className="w-full py-3 rounded-full bg-orange-500 text-black font-semibold hover:bg-orange-400 transition"
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05 }}
+              className="w-full py-3 rounded-full bg-orange-500 text-black font-semibold tracking-wide shadow-lg shadow-orange-500/30 hover:bg-orange-400 transition-all duration-300"
             >
               Send Message
-            </button>
+            </motion.button>
           </form>
         </motion.div>
       </div>

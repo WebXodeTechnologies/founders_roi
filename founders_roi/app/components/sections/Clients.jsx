@@ -1,119 +1,133 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
-/* DATA */
-const row1 = [
+/* ================= LOGOS ================= */
+const logos = [
   { name: "Aliens Photography", logo: "/clientImages/AlienPhotography.png" },
   { name: "Candier Photography", logo: "/clientImages/CandierPhotography.png" },
   { name: "Capicture", logo: "/clientImages/capicture.jpg" },
   { name: "Carnival", logo: "/clientImages/carnival.png" },
   { name: "Chikmangalur Vibes", logo: "/clientImages/chikmangalurVibes.jpg" },
-  { name: "EWS Logo", logo: "/clientImages/EWS logo.png" },
+  { name: "EWS Logo", logo: "/clientImages/ews-logo.png" },
   { name: "Fresh Frames", logo: "/clientImages/freshframes.in.jpg" },
-];
-
-const row2 = [
   { name: "Hi Proteins", logo: "/clientImages/Hiprotein.png" },
   { name: "House of Memories", logo: "/clientImages/HouseofMemories.jpeg" },
   { name: "L & H", logo: "/clientImages/L&H.png" },
-  { name: "Lexa Holidays", logo: "/clientImages/Lexa Holidays.jpeg" },
+  { name: "Lexa Holidays", logo: "/clientImages/lexa-holidays.jpeg" },
   { name: "S4C", logo: "/clientImages/S4C.png" },
   { name: "Splash Eventia", logo: "/clientImages/SplashEventia.jpg" },
   { name: "TH", logo: "/clientImages/TH.png" },
   { name: "Triberry Studios", logo: "/clientImages/triberrystudioslogo.png" },
 ];
 
-/* LOOP */
-const loopRow1 = [...row1, ...row1];
-const loopRow2 = [...row2, ...row2];
-
-export default function ClientsCarousel() {
+export default function Hero() {
   return (
-    <section className="py-24 bg-black text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 relative">
-        {/* HEADER */}
-        <div className="text-center mb-16">
-          <p className="text-orange-500 uppercase tracking-widest text-sm mb-3 font-semibold">
-            Clients
+    <section className="relative min-h-screen flex items-center bg-black overflow-hidden">
+      {/* ================= BACKGROUND ================= */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-black/30" />
+      </div>
+
+      {/* ================= CONTENT ================= */}
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* LEFT CONTENT */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center md:text-left z-10"
+        >
+          <p className="text-orange-500 font-semibold mb-4 tracking-widest uppercase text-sm">
+            Business Growth Consulting
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Brands We’ve <span className="text-orange-500">Delivered For</span>
-          </h2>
-          <p className="text-gray-400">
-            Trusted by businesses to build scalable growth systems.
+
+          <h1 className="text-4xl md:text-7xl font-bold leading-tight mb-6 text-white">
+            Scalable <br />
+            <span className="text-orange-500">Business Growth</span> Solutions
+          </h1>
+
+          <p className="text-gray-300 text-lg mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+            We help businesses scale through revenue growth consulting and
+            digital transformation. Building robust systems for the modern
+            enterprise.
           </p>
-        </div>
 
-        {/* EDGE FADE */}
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-black to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-black to-transparent z-10" />
+          {/* BUTTONS */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-full transition-all"
+            >
+              Start Scaling
+            </motion.button>
 
-        {/* ROW 1 */}
-        <div className="overflow-hidden mb-8">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="border border-white/20 hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-full transition-all"
+            >
+              Explore Services
+            </motion.button>
+          </div>
+
+          {/* ================= LOGO CAROUSEL ================= */}
+          <div className="mt-14 overflow-hidden">
+            <p className="text-xs uppercase tracking-widest text-gray-400 mb-6">
+              Trusted by Growing Businesses
+            </p>
+
+            <div className="relative w-full overflow-hidden">
+              <motion.div
+                className="flex gap-12 w-max"
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 25,
+                  ease: "linear",
+                }}
+              >
+                {[...logos, ...logos].map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-center min-w-[120px]"
+                  >
+                    <Image
+                      src={item.logo}
+                      alt={item.name}
+                      width={120}
+                      height={60}
+                      className="object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                    />
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* RIGHT IMAGE */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="relative hidden md:flex justify-end"
+        >
           <motion.div
-            className="flex gap-4"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              duration: 8, // ⚡ FAST
-              ease: "linear",
-              repeat: Infinity,
-            }}
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           >
-            {loopRow1.map((client, i) => (
-              <LogoCard key={i} client={client} index={i} />
-            ))}
+            <Image
+              src="/hero_image.png"
+              alt="Dashboard"
+              width={600}
+              height={600}
+              className="rounded-3xl shadow-[0_0_50px_-12px_rgba(249,115,22,0.3)] border border-white/10"
+            />
           </motion.div>
-        </div>
-
-        {/* ROW 2 */}
-        <div className="overflow-hidden">
-          <motion.div
-            className="flex gap-4"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              duration: 9, // ⚡ slight variation
-              ease: "linear",
-              repeat: Infinity,
-            }}
-          >
-            {loopRow2.map((client, i) => (
-              <LogoCard key={i} client={client} index={i} />
-            ))}
-          </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
-  );
-}
-
-/* LOGO CARD */
-function LogoCard({ client, index }) {
-  const sizes = ["w-[130px]", "w-[160px]", "w-[150px]", "w-[180px]"];
-  const randomWidth = sizes[index % sizes.length];
-
-  return (
-    <motion.div
-      className={`flex-[0_0_auto] ${randomWidth}`}
-      whileHover={{ scale: 1.15, y: -6 }}
-      transition={{ type: "spring", stiffness: 300 }}
-    >
-      <div className="group relative h-[70px] flex items-center justify-center rounded-xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden">
-        {/* 🔥 Animated Gradient Glow */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-purple-500/20 blur-lg"></div>
-
-        {/* ✨ Moving Shine Effect */}
-        <div className="absolute -left-full top-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-full transition-all duration-700"></div>
-
-        <Image
-          src={encodeURI(client.logo)}
-          alt={client.name}
-          width={120}
-          height={50}
-          className="object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300"
-        />
-      </div>
-    </motion.div>
   );
 }
