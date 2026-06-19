@@ -124,9 +124,9 @@ function MagneticButton({ href }) {
       <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none" />
       <div className="absolute -left-full top-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:animate-[shine_0.9s_ease-in-out] pointer-events-none" />
 
-      <Calendar size={18} className="text-black" />
-      <span className="relative z-10 tracking-wide">Book a Free Strategy Call</span>
-      <ArrowUpRight size={18} className="text-black transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      <Calendar size={18} className="text-white" />
+      <span className="relative z-10 tracking-normal   text-white">Book a Free Strategy Call</span>
+      <ArrowUpRight size={18} className="text-white transition-transform duration-800 group-hover:translate-x-0.5 group-hover:-translate-y-0.8" />
     </motion.a>
   );
 }

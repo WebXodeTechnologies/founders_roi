@@ -135,7 +135,7 @@ export default function Contact() {
                   </p>
 
                   <div className="flex flex-wrap gap-2">
-                    {["Chennai", "Coimbatore", "Salem"].map((city) => (
+                    {["Chennai", "Coimbatore", "Salem", "Namakkal"].map((city) => (
                       <div
                         key={city}
                         className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-neutral-900 bg-neutral-950/60 text-xs font-semibold text-neutral-300 backdrop-blur-md transition-all duration-300 hover:border-orange-500/30 hover:bg-neutral-900/40 cursor-default group"

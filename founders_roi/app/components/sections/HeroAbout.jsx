@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles, TrendingDown, Target, ShieldAlert, Rocket, Award, Activity, Cpu } from "lucide-react";
+import { Sparkles, TrendingDown, Target, ShieldAlert, Rocket, Award, Activity, Cpu, Bug } from "lucide-react";
 
 export default function HeroAbout() {
   const problems = [
@@ -93,7 +93,6 @@ export default function HeroAbout() {
             <div className="absolute inset-0 rounded-[2rem] bg-radial-gradient from-red-600/[0.05] via-transparent to-transparent opacity-0 group-hover/panel:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
 
             <h3 className="text-2xl font-bold tracking-tight text-white mb-10 pl-2 flex items-center gap-2">
-              <span className="inline-block w-2 h-2 rounded-full bg-red-500 animate-pulse" />
               The Problem Statement
             </h3>
 
@@ -105,7 +104,7 @@ export default function HeroAbout() {
                   className="flex gap-5 items-start p-4 rounded-2xl border border-transparent hover:border-red-500/10 group/item transition-all duration-300 cursor-default"
                 >
                   {/* Glowing Iconic Wrapper */}
-                  <div className="relative shrink-0 flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white/40 group-hover/item:text-red-400 group-hover/item:border-red-500/40 group-hover/item:bg-red-500/10 transition-all duration-300">
+                  <div className="relative shrink-0 flex h-11 w-11 text-orange-500 items-center justify-center rounded-xl bg-white/5 border border-white/10 group-hover/item:text-red-400 group-hover/item:border-red-500/40 group-hover/item:bg-red-500/10 transition-all duration-300">
                     <div className="absolute inset-0 rounded-xl bg-red-500/0 blur-md opacity-0 group-hover/item:bg-red-500/20 group-hover/item:opacity-100 transition-all duration-300 -z-10" />
                     {item.icon}
                   </div>
@@ -132,12 +131,11 @@ export default function HeroAbout() {
             className="group/panel relative rounded-[2rem] border border-white/10 bg-gradient-to-b from-neutral-950 to-black p-6 sm:p-10 transition-all duration-500 hover:border-orange-500/40 shadow-[0_30px_80px_-20px_rgba(249,115,22,0.1)]"
           >
             {/* Volumetric Orange background glow on panel hover */}
-            <div className="absolute inset-0 rounded-[2rem] bg-radial-gradient from-orange-600/[0.08] via-transparent to-transparent opacity-0 group-hover/panel:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
-
+            <div className="absolute inset-0 rounded-4xl bg-radial-gradient from-orange-600/8 via-transparent to-transparent opacity-0 group-hover/panel:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
             <h3 className="text-2xl font-bold tracking-tight text-white mb-10 pl-2 flex items-center gap-2">
-              <span className="inline-block w-2 h-2 rounded-full bg-orange-500 className='animate-ping'" />
               How Founders ROI Solves It
             </h3>
+            
 
             <div className="space-y-4">
               {solutions.map((item, idx) => (
@@ -147,7 +145,7 @@ export default function HeroAbout() {
                   className="flex gap-5 items-start p-4 rounded-2xl border border-transparent hover:border-orange-500/10 group/item transition-all duration-300 cursor-default"
                 >
                   {/* Dynamic Glowing Orange Icon Wrapper */}
-                  <div className="relative shrink-0 flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white/40 group-hover/item:text-orange-400 group-hover/item:border-orange-500/50 group-hover/item:bg-orange-500/10 transition-all duration-300">
+                  <div className="relative shrink-0 flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-orange-500 group-hover/item:text-orange-400 group-hover/item:border-orange-500/50 group-hover/item:bg-orange-500/10 transition-all duration-300">
                     <div className="absolute inset-0 rounded-xl bg-orange-500/0 blur-md opacity-0 group-hover/item:bg-orange-500/30 group-hover/item:opacity-100 transition-all duration-300 -z-10" />
                     {item.icon}
                   </div>

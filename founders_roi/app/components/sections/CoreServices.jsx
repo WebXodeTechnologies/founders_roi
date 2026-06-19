@@ -91,7 +91,7 @@ export default function CoreServices() {
                 {/* ICON & LINK ROW LAYOUT */}
                 <div className="flex items-center justify-between w-full">
                   {/* Neon Glow Boxed Icon Container */}
-                  <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white/50 group-hover:text-orange-400 group-hover:border-orange-500/40 group-hover:bg-orange-500/10 transition-all duration-300 shadow-md">
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-orange-500 group-hover:text-orange-400 group-hover:border-orange-500/40 group-hover:bg-orange-500/10 transition-all duration-300 shadow-md">
                     {/* Deep inner aura flash overlay backing */}
                     <div className="absolute inset-0 rounded-xl bg-orange-500/0 blur-md opacity-0 group-hover:bg-orange-500/30 group-hover:opacity-100 transition-all duration-300 -z-10" />
                     {service.icon}

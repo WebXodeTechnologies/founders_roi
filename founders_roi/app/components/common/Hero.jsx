@@ -120,7 +120,7 @@ export default function Hero() {
             <Counter value="8X" label="Revenue Growth" />
             <Counter value="6000%" label="ROAS Delivered" />
             <Counter value="100M" label="Views Generated" />
-            <Counter value="3.3 CR" label="Revenue Processed" />
+            <Counter value="3.3 CR" label="Revenue Generated" />
           </div>
 
         </motion.div>

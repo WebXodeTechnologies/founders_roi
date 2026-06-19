@@ -53,12 +53,12 @@ const secondRowExtended = [...secondRow, ...secondRow, ...secondRow];
 
 export default function Testimonials() {
   return (
-    <section className="w-full bg-[#030202] text-white py-24 overflow-hidden relative">
+    <section className="max-w-7xl mx-auto w-full text-white py-20 overflow-hidden relative">
       {/* BACKGROUND AMBIENT GLOW */}
-      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-orange-500/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-orange-500/10 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-400/10 blur-[110px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-16 mb-16">
+      <div className="px-6 md:px-16 mb-16">
         {/* HEADER */}
         <div className="text-center">
           <p className="text-orange-500 uppercase tracking-widest text-xs sm:text-sm font-bold mb-3">
@@ -119,19 +119,19 @@ function TestimonialCard({ item }) {
   const safeLogoPath = encodeURI(item.logo);
 
   return (
-    <div className="w-[280px] sm:w-[360px] shrink-0 bg-[#0a0a0a] border border-[#1f1f1f] rounded-2xl p-6 relative group transition-colors duration-300 hover:border-orange-500/30">
+    <div className="w-80 sm:w-90 shrink-0 bg-bg-card border border-border-custom rounded-2xl p-6 relative group transition-colors duration-300 hover:border-orange-500/30">
       {/* Subtle Container Internal Flare */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
 
       {/* HEADER: LOGO & RATING */}
       <div className="flex items-center justify-between gap-4 mb-5">
-        <div className="relative w-20 h-10">
+        <div className="relative w-20 h-20">
           <Image
             src={safeLogoPath}
             alt={`${item.name} branding logo`}
             fill
             sizes="80px"
-            className="object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+            className="object-contain transition-all duration-300"
           />
         </div>
         <div className="flex gap-0.5 text-orange-500">
