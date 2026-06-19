@@ -27,7 +27,7 @@ const insights = [
 
 export default function WhyFoundersROIOverview() {
   return (
-    <section className="w-full bg-[#030202] text-white py-32 px-4 sm:px-8 lg:px-16 relative overflow-hidden select-none">
+    <section className="w-full bg-bg-primary text-white py-32 px-4 sm:px-8 lg:px-16 relative overflow-hidden select-none">
       
       {/* ================= ATMOSPHERIC DECK BACKDROPS ================= */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-orange-500/[0.02] blur-[150px] pointer-events-none rounded-full" />
@@ -45,7 +45,7 @@ export default function WhyFoundersROIOverview() {
           
           <h2 className="text-4xl sm:text-5xl font-black tracking-tight leading-[1.12]">
             Why Traditional <br />
-            Marketing <span className="bg-gradient-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">Fails You</span>
+            Marketing <span className="bg-linear-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">Fails You</span>
           </h2>
           
           <p className="text-neutral-500 text-sm max-w-sm font-light leading-relaxed">
@@ -69,7 +69,7 @@ export default function WhyFoundersROIOverview() {
               <div className={`absolute inset-0 bg-gradient-to-br ${item.glow} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl`} />
 
               {/* Icon Frame Box */}
-              <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 text-neutral-400 group-hover:text-orange-400 group-hover:border-orange-500/20 transition-all duration-300 shrink-0 shadow-md">
+              <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 text-orange-500 group-hover:text-orange-500 group-hover:border-orange-500/20 transition-all duration-300 shrink-0 shadow-md">
                 <item.icon size={20} />
               </div>
 

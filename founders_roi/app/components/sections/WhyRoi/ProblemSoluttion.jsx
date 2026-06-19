@@ -101,7 +101,7 @@ export default function ProblemSolution() {
               <h3 className="text-sm font-bold tracking-widest text-red-500 uppercase">
                 The Core Bottlenecks
               </h3>
-              <span className="text-xs font-medium text-neutral-600">[01 — Friction]</span>
+              
             </div>
 
             <div className="space-y-4">
@@ -129,13 +129,13 @@ export default function ProblemSolution() {
                       <div className={`p-3 rounded-xl border transition-all duration-500 shrink-0 ${
                         isCurrent 
                           ? "bg-red-500 text-black border-transparent shadow-lg shadow-red-950/40 rotate-[-4deg]" 
-                          : "bg-neutral-900 border-neutral-800 text-red-400"
+                          : "bg-neutral-900 border-neutral-800 text-orange-400"
                       }`}>
                         <Icon size={20} />
                       </div>
 
                       <div className="space-y-1.5">
-                        <h4 className={`text-base sm:text-lg font-bold transition-colors duration-300 ${isCurrent ? 'text-red-400' : 'text-white'}`}>
+                        <h4 className={`text-base sm:text-lg font-bold transition-colors duration-300 ${isCurrent ? 'text-orange-400' : 'text-white'}`}>
                           {item.title}
                         </h4>
                         <p className="text-neutral-400 font-light text-xs sm:text-sm leading-relaxed">
@@ -155,7 +155,7 @@ export default function ProblemSolution() {
               <h3 className="text-sm font-bold tracking-widest text-orange-500 uppercase">
                 The Growth Architecture
               </h3>
-              <span className="text-xs font-medium text-neutral-600">[02 — Acceleration]</span>
+              
             </div>
 
             <div className="space-y-4">

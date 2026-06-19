@@ -112,21 +112,20 @@ function MagneticButton({ href }) {
   };
 
   return (
-    <motion.a
-      href={href}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ x: springX, y: springY }}
-      whileHover={{ scale: 1.03 }}
-      transition={{ type: "spring", stiffness: 200, damping: 15 }}
-      className="relative inline-flex items-center gap-3 px-8 py-4 text-base font-bold rounded-xl bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-black shadow-xl shadow-orange-950/20 group overflow-hidden pointer-events-auto w-full sm:w-auto justify-center"
-    >
-      <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none" />
-      <div className="absolute -left-full top-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:animate-[shine_0.9s_ease-in-out] pointer-events-none" />
-
-      <Calendar size={18} className="text-white" />
-      <span className="relative z-10 tracking-normal   text-white">Book a Free Strategy Call</span>
-      <ArrowUpRight size={18} className="text-white transition-transform duration-800 group-hover:translate-x-0.5 group-hover:-translate-y-0.8" />
-    </motion.a>
+  <motion.a
+        href={href}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{ x: springX, y: springY }}
+        whileHover={{ scale: 1.03 }}
+        transition={{ type: "spring", stiffness: 220, damping: 16 }}
+        className="relative inline-flex items-center gap-3 px-10 py-4.5 text-sm font-extrabold uppercase tracking-widest rounded-xl bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-black shadow-xl shadow-orange-950/20 group overflow-hidden w-full sm:w-auto justify-center"
+      >
+        <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-15 transition-opacity duration-300 pointer-events-none" />
+        <div className="absolute -left-full top-0 h-full w-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-[shine_0.9s_ease-in-out] pointer-events-none" />
+  
+        <span className="relative z-10">Get Started Now</span>
+        <ArrowUpRight size={16} className="text-black transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </motion.a>
   );
 }
