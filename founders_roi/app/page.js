@@ -15,7 +15,7 @@ import ClientMarque from "./components/sections/ClientMarque";
 
 export default function Home() {
   return (
-    <section className="">
+    <section className="py-20">
       <Hero />
       <ClientMarque/>
       <About/>
