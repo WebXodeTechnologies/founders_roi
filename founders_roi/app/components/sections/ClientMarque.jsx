@@ -1,90 +1,84 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Building2,
-  Globe,
-  Cpu,
-  Zap,
-  Activity,
-  ShieldCheck,
-  Target,
-  Camera,
-  Briefcase,
-  Star,
-  Sparkles,
-} from "lucide-react";
+import Image from "next/image";
 
-const allBrands = [
-  { name: "Twinkle Holidays", icon: Globe },
-  { name: "Triberry Studios", icon: Camera },
-  { name: "Carnival Studios", icon: Star },
-  { name: "AJ Uday Photography", icon: Activity },
-  { name: "AK Photography", icon: Cpu },
-  { name: "Lexa Holidays", icon: ShieldCheck },
-  { name: "Fresh Frames Inn", icon: Zap },
-  { name: "House Of Memoriez", icon: Briefcase },
-  { name: "Candier Photography", icon: Target },
-  { name: "Capicture Studios", icon: Building2 },
-  { name: "Vs Photography", icon: Camera },
-  { name: "Elite Wedding Stories", icon: Sparkles },
+const clients = [
+  { name: "Aliens Photography", logo: "/clientImages/AlienPhotography.png" },
+  { name: "Candier Photography", logo: "/clientImages/CandierPhotography.png" },
+  { name: "Capicture", logo: "/clientImages/capicture.jpg" },
+  { name: "Carnival", logo: "/clientImages/carnival.png" },
+  { name: "Chikmangalur Vibes", logo: "/clientImages/chikmangalurVibes.jpg" },
+  { name: "EWS Logo", logo: "/clientImages/EWS logo.png" },
+  { name: "Fresh Frames", logo: "/clientImages/freshframes.in.jpg" },
+  { name: "Leo Photography", logo: "/clientImages/LeoPhotogrpahy.jpg" },
+  { name: "Hi Proteins", logo: "/clientImages/Hiprotein.png" },
+  { name: "House of Memories", logo: "/clientImages/HouseofMemories.jpeg" },
+  { name: "L & H", logo: "/clientImages/L&H.png" },
+  { name: "Lexa Holidays", logo: "/clientImages/Lexa Holidays.jpeg" },
+  { name: "S4C", logo: "/clientImages/S4C.png" },
+  { name: "Splash Eventia", logo: "/clientImages/SplashEventia.jpg" },
+  { name: "TH", logo: "/clientImages/TH.png" },
+  { name: "Triberry Studios", logo: "/clientImages/triberrystudioslogo.png" },
 ];
 
 const ClientMarquee = () => {
-  return (
-    <section className="py-10 overflow-hidden relative">
-      {/* Refined Ambient Glows */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-orange-600/[0.08] blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-orange-900/[0.05] blur-[120px] rounded-full pointer-events-none" />
+  // Triple the array to ensure seamless infinite looping animation
+  const loopClients = [...clients, ...clients, ...clients];
 
-      <div className="text-center mb-5 relative z-10">
-        <h3 className="text-neutral-500 font-bold uppercase tracking-[0.3em] text-[11px]">
+  return (
+    <section className="w-full bg-black py-16 overflow-hidden relative">
+      {/* Background Ambient Glows */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-orange-600/[0.04] blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-orange-950/[0.03] blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="text-center mb-10 relative z-10">
+        <h1 className="text-neutral-500 font-bold uppercase tracking-[0.25em] text-md text-pretty">
           Trusted Industry Partners
-        </h3>
+        </h1>
       </div>
 
-      {/* Marquee Wrapper */}
-      <div className="relative w-full py-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        {/* Animated Light Beam */}
+      {/* Marquee Wrapper with horizontal mask fade-outs */}
+      <div className="relative w-full overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        {/* Animated Light Sweep Beam */}
         <div className="absolute inset-0 z-20 pointer-events-none flex items-center">
           <motion.div
             initial={{ x: "100%" }}
             animate={{ x: "-100%" }}
             transition={{
-              duration: 2.5,
+              duration: 3,
               repeat: Infinity,
-              repeatDelay: 3,
+              repeatDelay: 4,
               ease: "easeInOut",
             }}
-            className="w-[30%] h-full bg-gradient-to-r from-transparent via-orange-500/20 to-transparent blur-3xl"
+            className="w-[20%] h-full bg-linear-to-r from-transparent via-orange-500/10 to-transparent blur-2xl"
           />
         </div>
 
-        {/* Marquee Motion */}
+        {/* Marquee Row */}
         <motion.div
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ ease: "linear", duration: 60, repeat: Infinity }}
-          className="flex gap-8 shrink-0"
+          animate={{ x: ["0%", "-33.333%"] }}
+          transition={{ ease: "linear", duration: 35, repeat: Infinity }}
+          className="flex gap-12 w-max py-2 items-center"
         >
-          {[...allBrands, ...allBrands, ...allBrands].map((brand, idx) => (
-            <BrandCard key={idx} brand={brand} />
+          {loopClients.map((client, idx) => (
+            <div
+              key={idx}
+              className="group relative flex items-center justify-center bg-transparent transition-all duration-300 hover:scale-105 shrink-0 h-16 w-36 sm:h-20 sm:w-44 overflow-hidden cursor-pointer"
+            >
+              <Image
+                src={client.logo}
+                alt={client.name}
+                width={160}
+                height={80}
+                className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105 select-none"
+              />
+            </div>
           ))}
         </motion.div>
       </div>
     </section>
   );
 };
-
-const BrandCard = ({ brand }) => (
-  <div className="group flex items-center gap-4 px-10 py-5 rounded-3xl border border-white/5 bg-neutral-900/40 backdrop-blur-md hover:border-orange-500/30 transition-all duration-500 shrink-0 shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
-    <brand.icon
-      size={20}
-      className="text-orange-500 group-hover:scale-110 transition-transform duration-500"
-    />
-    <span className="text-sm font-bold uppercase tracking-widest text-neutral-400 group-hover:text-white transition-colors whitespace-nowrap">
-      {brand.name}
-    </span>
-  </div>
-);
 
 export default ClientMarquee;

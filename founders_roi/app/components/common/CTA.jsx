@@ -6,7 +6,7 @@ import React from "react";
 
 export default function CTA() {
   return (
-    <section className="w-full bg-[#030202] text-white py-32 px-4 sm:px-8 lg:px-16 relative overflow-hidden select-none">
+    <section className="w-full bg-[#030202] text-white py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden select-none">
       
       {/* ================= BACKGROUND GRAPHICS & MESH LAYERS ================= */}
       {/* Radial Focal Ambient Glow Behind Card */}
@@ -119,7 +119,7 @@ function MagneticButton({ href }) {
         style={{ x: springX, y: springY }}
         whileHover={{ scale: 1.03 }}
         transition={{ type: "spring", stiffness: 220, damping: 16 }}
-        className="relative inline-flex items-center gap-3 px-10 py-4.5 text-sm font-extrabold uppercase tracking-widest rounded-xl bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-black shadow-xl shadow-orange-950/20 group overflow-hidden w-full sm:w-auto justify-center"
+        className="relative inline-flex items-center gap-3 px-10 py-4 text-sm font-extrabold uppercase tracking-widest rounded-xl bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-black shadow-xl shadow-orange-950/20 group overflow-hidden w-full sm:w-auto justify-center"
       >
         <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-15 transition-opacity duration-300 pointer-events-none" />
         <div className="absolute -left-full top-0 h-full w-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-[shine_0.9s_ease-in-out] pointer-events-none" />

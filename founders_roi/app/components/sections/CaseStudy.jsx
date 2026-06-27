@@ -22,7 +22,7 @@ const metrics = [
 
 const CaseStudy = () => {
   return (
-    <section className="w-full bg-black text-white py-24 px-6 md:px-16 relative overflow-hidden">
+    <section className="w-full bg-black text-white py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* BACKGROUND GRADIENT */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-orange-950/20 to-black opacity-60" />
 

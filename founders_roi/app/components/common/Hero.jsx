@@ -6,37 +6,85 @@ import { ArrowUpRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import heroimg from "@/public/hero/ref1.png";
 import Image from "next/image";
+import ButtonCTA from "../ui/ButtonCTA";
 
 // 1. Counter Helper Component
 function Counter({ value, label }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [count, setCount] = useState(0);
+  const animationRef = useRef(null);
 
   const numericValue = parseFloat(value.replace(/[^0-9.]/g, ""));
   const suffix = value.replace(/[0-9.]/g, "");
 
-  const spring = useSpring(0, { duration: 3, bounce: 0 });
-  const display = useTransform(
-    spring,
-    (latest) =>
-      `${latest % 1 === 0 ? Math.round(latest) : latest.toFixed(1)}${suffix}`,
-  );
+  const startAnimation = () => {
+    if (animationRef.current) {
+      window.cancelAnimationFrame(animationRef.current);
+    }
+
+    let startTimestamp = null;
+    const duration = 2000; // Animation duration in milliseconds
+
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+
+      // Easing function: easeOutQuad
+      const easeProgress = progress * (2 - progress);
+      setCount(easeProgress * numericValue);
+
+      if (progress < 1) {
+        animationRef.current = window.requestAnimationFrame(step);
+      } else {
+        setCount(numericValue);
+      }
+    };
+
+    animationRef.current = window.requestAnimationFrame(step);
+  };
 
   useEffect(() => {
-    if (isInView) spring.set(numericValue);
-  }, [isInView, spring, numericValue]);
+    if (isInView) {
+      startAnimation();
+    }
+    return () => {
+      if (animationRef.current) {
+        window.cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isInView, numericValue]);
+
+  // Format decimal values dynamically
+  const displayValue = count % 1 === 0 ? Math.round(count) : count.toFixed(1);
 
   return (
     <div
       ref={ref}
-      className="group relative flex flex-col justify-center items-center p-4 sm:p-6 rounded-2xl border border-white/5 bg-neutral-900/40 backdrop-blur-md transition-all duration-300 hover:border-orange-500/30 hover:bg-neutral-900/60 text-center shadow-xl"
+      onMouseEnter={startAnimation}
+      className="group relative flex flex-col justify-center items-center p-3 sm:p-5 lg:p-6 rounded-2xl text-center shadow-xl overflow-hidden cursor-pointer"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
+      {/* 🌟 LIVE ANIMATED BORDER TRACKS 🌟 */}
+      <div className="absolute inset-0 rounded-2xl pointer-events-none overflow-hidden">
+        {/* Background Rotating Conic Light */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 6,
+            ease: "linear",
+            repeat: Infinity,
+          }}
+          style={{ originX: "50%", originY: "50%" }}
+          className="absolute inset-[-200%] bg-[conic-gradient(from_0deg,transparent_75%,#f97316_88%,#fb923c_98%,transparent_100%)] opacity-30 group-hover:opacity-100 transition-opacity duration-500"
+        />
+        {/* Solid Content Mask overlaying the light - strictly exposing the 1px border track */}
+        <div className="absolute inset-[1px] bg-[#0a0a0a] group-hover:bg-[#121212] transition-colors duration-300 rounded-[15px]" />
+      </div>
 
-      <motion.p className="text-2xl sm:text-4xl font-black bg-gradient-to-r from-white via-white to-neutral-400 bg-clip-text text-transparent mb-1.5 tracking-tight group-hover:from-orange-400 group-hover:to-amber-500 transition-all duration-300">
-        {display}
-      </motion.p>
-      <p className="text-[9px] sm:text-[10px] text-white/40 uppercase tracking-[0.15em] font-bold group-hover:text-white/70 transition-colors duration-300">
+      <p className="relative z-10 text-xl sm:text-3xl lg:text-4xl font-black bg-linear-to-r from-white via-white to-neutral-400 bg-clip-text text-transparent mb-1.5 tracking-tight group-hover:from-orange-400 group-hover:to-amber-500 transition-all duration-300">
+        {displayValue}{suffix}
+      </p>
+      <p className="relative z-10 text-[8px] sm:text-[10px] text-white/40 uppercase tracking-[0.15em] font-bold group-hover:text-white/70 transition-colors duration-300">
         {label}
       </p>
     </div>
@@ -67,6 +115,7 @@ export default function Hero() {
     if (!isDeleting && displayedText === fullWord) {
       timer = setTimeout(() => setIsDeleting(true), 2000);
     } else if (isDeleting && displayedText === "") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsDeleting(false);
       setCurrentWordIndex((prev) => (prev + 1) % words.length);
     } else {
@@ -82,7 +131,7 @@ export default function Hero() {
   }, [displayedText, isDeleting, currentWordIndex, words]);
 
   return (
-    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden pt-30 pb-12 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 px-4 sm:px-6 lg:px-8">
+    <section className="relative flex w-full items-center justify-center overflow-hidden pt-25 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 px-4 sm:px-6 lg:px-8">
       {/* BLINKING CURSOR STYLE */}
       <style jsx global>{`
         @keyframes blink {
@@ -106,7 +155,7 @@ export default function Hero() {
         >
           <source src="/bg-vdo/1.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-black" />
         <div className="absolute top-1/3 lg:top-1/2 right-1/2 lg:right-[-10%] -z-10 h-[280px] w-[280px] sm:h-[500px] sm:w-[500px] lg:h-[750px] lg:w-[750px] -translate-y-1/2 translate-x-1/2 lg:translate-x-0 rounded-full bg-orange-600/10 blur-[70px] sm:blur-[120px]" />
       </div>
 
@@ -122,7 +171,7 @@ export default function Hero() {
             className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:col-span-7"
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-neutral-900/60 px-4 py-1.5 text-[10px] sm:text-[11px] font-semibold tracking-wider text-orange-400 uppercase backdrop-blur-md mb-6 shadow-inner">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-neutral-900/60 px-4 py-1.5 text-[10px] sm:text-[11px] font-semibold tracking-wider text-orange-400 uppercase backdrop-blur-md mb-4 shadow-inner">
               <Sparkles size={12} className="text-orange-400 shrink-0" />
               <span>Growth Engineering • Scale Ecosystem</span>
             </div>
@@ -130,7 +179,7 @@ export default function Hero() {
             {/* Heading */}
             <h1 className="text-[32px] font-black tracking-tight text-white sm:text-5xl md:text-6xl leading-[1.15] sm:leading-[1.1] mb-5">
               We Build NxtGen <br />
-              <span className="relative inline-block bg-gradient-to-r from-orange-400 via-amber-500 to-orange-500 bg-clip-text text-transparent min-h-[1.2em] pb-1">
+              <span className="relative inline-block bg-linear-to-r from-orange-400 via-amber-500 to-orange-500 bg-clip-text text-transparent min-h-[1.2em] pb-1">
                 {displayedText}
                 <span className="absolute -right-1.5 top-[10%] inline-block w-[3px] h-[80%] bg-orange-500 typing-cursor" />
               </span>{" "}
@@ -147,12 +196,13 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto">
-              <Link
+              <ButtonCTA
                 href="/contact"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-8 py-3.5 text-sm sm:text-base font-bold text-white shadow-[0_4px_20px_rgba(249,115,22,0.2)] transition-all hover:scale-[1.03] active:scale-95"
-              >
-                Build Your Idea <ArrowUpRight size={16} />
-              </Link>
+                text="Build Your Idea"
+                showArrow={true}
+                showBorder={false}
+                className="mt-0 pt-0 w-full sm:w-auto!"
+              />
               <Link
                 href="/why-us"
                 className="w-full sm:w-auto flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-8 py-3.5 text-sm sm:text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 active:scale-95"
@@ -169,7 +219,7 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
             className="relative w-full h-[280px] sm:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden border border-white/5 bg-neutral-950/20 backdrop-blur-sm shadow-[0_20px_50px_rgba(0,0,0,0.6)] group lg:col-span-5"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40 z-10" />
+            <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/40 z-10" />
             <Image
               src={heroimg}
               alt="Founders ROI Infrastructure Reference"
@@ -185,7 +235,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="w-full border-t border-white/10 pt-8 sm:pt-12"
+          className="w-full border-t border-white/10 pt-4 sm:pt-5"
         >
           {/* Changed grid-cols-1 to grid-cols-2 on small mobile devices so it stays structured beautifully */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 w-full">
@@ -195,7 +245,7 @@ export default function Hero() {
             <Counter value="3.3 CR" label="Revenue Generated" />
           </div>
         </motion.div>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 }

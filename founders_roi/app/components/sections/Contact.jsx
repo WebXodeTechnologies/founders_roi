@@ -35,7 +35,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="w-full bg-[#030202] text-white py-32 px-4 sm:px-8 lg:px-16 relative overflow-hidden select-none">
+    <section className="w-full bg-[#030202] text-white py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden select-none">
 
       {/* ================= BACKGROUND GRAPHICS & AMBIENT SPHERE ================= */}
       <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-orange-500/[0.03] blur-[150px] rounded-full pointer-events-none" />

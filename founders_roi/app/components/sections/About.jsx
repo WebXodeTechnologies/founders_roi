@@ -11,6 +11,7 @@ import {
   Target,
 } from "lucide-react";
 import Link from "next/link";
+import ButtonCTA from "../ui/ButtonCTA";
 
 export default function About() {
   const values = [
@@ -32,12 +33,12 @@ export default function About() {
   ];
 
   return (
-    <section className="relative w-full overflow-hidden  py-24 px-4 sm:px-6 md:px-16">
+    <section className="relative w-full overflow-hidden py-20 sm:py-24 px-4 sm:px-6 lg:px-8">
       {/* ================= PURE GLOW MESH LAYER ================= */}
       <div className="absolute top-0 left-[-10%] z-0 h-[400px] w-[400px] rounded-full bg-orange-600/[0.08] blur-[150px]" />
       <div className="absolute bottom-0 right-[-10%] z-0 h-[400px] w-[400px] rounded-full bg-orange-600/[0.08] blur-[150px]" />
 
-      <div className="relative z-10 mx-auto max-w-7xl grid grid-cols-1 gap-16 lg:grid-cols-[0.9fr_1.1fr] items-center">
+      <div className="relative z-10 mx-auto max-w-7xl grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] items-center">
         {/* ================= LEFT SIDE: PREMIUM IMMERSIVE MEDIA FRAME ================= */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -129,24 +130,7 @@ export default function About() {
           </div>
 
           {/* CALL TO ACTION HUB ELEMENT */}
-          <div className="mt-10 pt-4 border-t border-white/5 w-full flex justify-center lg:justify-center">
-            <motion.div
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto"
-            >
-              <Link
-                href="/why-us"
-                className="group flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-8 py-4 text-base font-bold text-white shadow-[0_4px_30px_rgba(249,115,22,0.3)] transition-all duration-300 hover:shadow-[0_8px_36px_rgba(249,115,22,0.5)]"
-              >
-                <span>Know More</span>
-                <ArrowUpRight
-                  size={18}
-                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                />
-              </Link>
-            </motion.div>
-          </div>
+          <ButtonCTA />
         </motion.div>
       </div>
     </section>

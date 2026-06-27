@@ -15,7 +15,7 @@ import ClientMarque from "./components/sections/ClientMarque";
 
 export default function Home() {
   return (
-    <section className="py-20">
+    <main className="overflow-hidden">
       <Hero />
       <ClientMarque/>
       <About/>
@@ -28,6 +28,6 @@ export default function Home() {
       <Testimonials/>
       <CTA/>
       <Contact/>
-    </section>
+    </main>
   );
 }

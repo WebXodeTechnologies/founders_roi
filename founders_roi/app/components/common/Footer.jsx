@@ -15,7 +15,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full text-white pt-30 px-4 sm:px-8 lg:px-16 relative overflow-hidden select-none border-t border-neutral-900">
+    <footer className="w-full text-white pt-20 sm:pt-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden select-none border-t border-neutral-900">
 
       {/* ================= BACKGROUND GRAPHICS & AMBIENT GLOW ================= */}
       {/* Upward Facing Deep Orange Horizon Light Flare */}

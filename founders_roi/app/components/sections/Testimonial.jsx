@@ -53,7 +53,7 @@ const secondRowExtended = [...secondRow, ...secondRow, ...secondRow];
 
 export default function Testimonials() {
   return (
-    <section className="max-w-7xl mx-auto w-full text-white py-20 overflow-hidden relative">
+    <section className="max-w-7xl mx-auto w-full text-white py-20 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden relative">
       {/* BACKGROUND AMBIENT GLOW */}
       <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-orange-500/10 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-400/10 blur-[110px] rounded-full pointer-events-none" />

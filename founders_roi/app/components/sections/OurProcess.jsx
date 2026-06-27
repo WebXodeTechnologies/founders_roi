@@ -28,7 +28,7 @@ const process = [
 
 export default function Process() {
   return (
-    <section className="w-full bg-black text-white py-24 px-6 md:px-16">
+    <section className="w-full bg-black text-white py-20 sm:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* HEADER */}
         <div className="text-center mb-16">

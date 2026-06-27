@@ -35,9 +35,9 @@ export default function ClientsCarousel() {
   const [isHoveredRow2, setIsHoveredRow2] = useState(false);
 
   return (
-    <section className="relative w-full py-28 px-4 overflow-hidden select-none bg-black">
+    <section className="relative w-full py-20 sm:py-24 px-4 overflow-hidden select-none bg-black">
       {/* Background Structural Accent Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-225 h-125 rounded-full bg-linear-to-tr from-orange-500/5 via-transparent to-transparent blur-[180px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] rounded-full bg-linear-to-tr from-orange-500/5 via-transparent to-transparent blur-[180px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="text-center mb-24 flex flex-col items-center">
@@ -94,7 +94,7 @@ function LargeInteractiveLogoCard({ client }) {
 
   return (
     <motion.div
-      className="w-70.5 h-60 sm:w-[350px] sm:h-50  [perspective:1000px]"
+      className="w-72 h-60 sm:w-[350px] sm:h-50 [perspective:1000px]"
       style={{ rotateX, rotateY }}
       onMouseMove={handleMouseMove}
       onMouseLeave={() => { x.set(0); y.set(0); }}
