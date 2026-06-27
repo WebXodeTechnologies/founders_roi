@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Megaphone, TrendingUp, Palette, Code, Briefcase } from "lucide-react";
 import ServicesHero from "../components/sections/Services/ServicesHero";
 import ServiceShowcaseList from "../components/sections/Services/ServiceShowcaseList";
 import ThirdCta from "../components/sections/WhyRoi/ThirdCta";
