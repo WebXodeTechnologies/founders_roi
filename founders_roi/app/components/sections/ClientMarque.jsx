@@ -29,8 +29,8 @@ const ClientMarquee = () => {
   return (
     <section className="w-full bg-black py-16 overflow-hidden relative">
       {/* Background Ambient Glows */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-orange-600/[0.04] blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-orange-950/[0.03] blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-orange-600/4 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-orange-950/3 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="text-center mb-10 relative z-10">
         <h1 className="text-neutral-500 font-bold uppercase tracking-[0.25em] text-md text-pretty">

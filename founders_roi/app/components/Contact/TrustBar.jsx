@@ -39,6 +39,7 @@ export default function TrustBar() {
                   src={item.image} 
                   alt={item.name} 
                   fill 
+                  sizes="240px"
                   className="object-contain" 
                 />
               </div>

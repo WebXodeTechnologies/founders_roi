@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles, TrendingDown, Target, ShieldAlert, Rocket, Award, Activity, Cpu, Bug } from "lucide-react";
+import { Sparkles, TrendingDown, Target, ShieldAlert, Rocket, Award, Activity, Cpu } from "lucide-react";
 
 export default function HeroAbout() {
   const problems = [
@@ -55,8 +55,8 @@ export default function HeroAbout() {
     <section className="relative w-full bg-black py-20 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
 
       {/* ================= HIGH-END AMBIENT COLOURED BACKGROUND SPHERES ================= */}
-      <div className="absolute top-1/3 left-[-15%] -translate-y-1/2 z-0 h-[600px] w-[600px] rounded-full bg-red-600/[0.03] blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/3 right-[-15%] -translate-y-1/2 z-0 h-[600px] w-[600px] rounded-full bg-orange-500/[0.03] blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 left-[-15%] -translate-y-1/2 z-0 h-[600px] w-[600px] rounded-full bg-red-600/3 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-[-15%] -translate-y-1/2 z-0 h-[600px] w-[600px] rounded-full bg-orange-500/3 blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
 
@@ -69,7 +69,7 @@ export default function HeroAbout() {
 
           <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl md:text-6xl leading-[1.1] max-w-4xl">
             Most Brands Don’t Have a <br />
-            <span className="bg-gradient-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">
               Growth System
             </span>
           </h2>
@@ -87,10 +87,10 @@ export default function HeroAbout() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6 }}
-            className="group/panel relative rounded-[2rem] bg-gradient-to-b from-neutral-950 to-black p-6 sm:p-10 transition-all duration-500 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.95)]"
+            className="group/panel relative rounded-4xl bg-linear-to-b from-neutral-950 to-black p-6 sm:p-10 transition-all duration-500 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.95)]"
           >
             {/* 🌟 LIVE ANIMATED BORDER TRACKS 🌟 */}
-            <div className="absolute inset-0 rounded-[2rem] pointer-events-none overflow-hidden">
+            <div className="absolute inset-0 rounded-4xl pointer-events-none overflow-hidden">
               {/* Background Rotating Conic Light */}
               <motion.div
                 animate={{ rotate: 360 }}
@@ -103,7 +103,7 @@ export default function HeroAbout() {
                 className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_75%,#ef4444_88%,#f97316_98%,transparent_100%)] opacity-20 group-hover/panel:opacity-100 transition-opacity duration-500"
               />
               {/* Solid Content Mask */}
-              <div className="absolute inset-[1px] bg-neutral-950 rounded-[31px]" />
+              <div className="absolute inset-px bg-neutral-950 rounded-[31px]" />
             </div>
 
             {/* Inner Content Wrapper */}
@@ -146,10 +146,10 @@ export default function HeroAbout() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="group/panel relative rounded-[2rem] bg-gradient-to-b from-neutral-950 to-black p-6 sm:p-10 transition-all duration-500 shadow-[0_30px_80px_-20px_rgba(249,115,22,0.1)]"
+            className="group/panel relative rounded-4xl bg-linear-to-b from-neutral-950 to-black p-6 sm:p-10 transition-all duration-500 shadow-[0_30px_80px_-20px_rgba(249,115,22,0.1)]"
           >
             {/* 🌟 LIVE ANIMATED BORDER TRACKS 🌟 */}
-            <div className="absolute inset-0 rounded-[2rem] pointer-events-none overflow-hidden">
+            <div className="absolute inset-0 rounded-4xl pointer-events-none overflow-hidden">
               {/* Background Rotating Conic Light */}
               <motion.div
                 animate={{ rotate: 360 }}
@@ -162,7 +162,7 @@ export default function HeroAbout() {
                 className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_75%,#f97316_88%,#fb923c_98%,transparent_100%)] opacity-20 group-hover/panel:opacity-100 transition-opacity duration-500"
               />
               {/* Solid Content Mask */}
-              <div className="absolute inset-[1px] bg-neutral-950 rounded-[31px]" />
+              <div className="absolute inset-px bg-neutral-950 rounded-[31px]" />
             </div>
 
             {/* Inner Content Wrapper */}

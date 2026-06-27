@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import {
   Megaphone,
@@ -10,7 +10,6 @@ import {
   Smartphone,
   Globe,
   Sparkles,
-  ArrowUpRight,
 } from "lucide-react";
 
 export default function CoreServices() {
@@ -51,7 +50,7 @@ export default function CoreServices() {
     <section className="relative w-full bg-black py-20 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       
       {/* ================= BACKGROUND HIGH-CONTRAST DUST AURA ================= */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-0 h-[600px] w-[800px] rounded-full bg-orange-600/[0.03] blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 h-[600px] w-[800px] rounded-full bg-orange-600/3 blur-[160px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         
@@ -63,7 +62,7 @@ export default function CoreServices() {
           </div>
 
           <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl leading-[1.1]">
-            What We <span className="bg-gradient-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">Offer</span>
+            What We <span className="bg-linear-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">Offer</span>
           </h2>
 
           <p className="mt-4 text-sm sm:text-base text-white/50 max-w-2xl leading-relaxed px-4">
@@ -81,10 +80,10 @@ export default function CoreServices() {
               viewport={{ once: true, margin: "-30px" }}
               transition={{ delay: i * 0.05, duration: 0.5 }}
               whileHover={{ y: -4 }}
-              className="group relative rounded-3xl border border-white/5 bg-gradient-to-b from-neutral-950 to-black p-6 sm:p-8 transition-all duration-500 hover:border-orange-500/30 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.95)] overflow-hidden"
+              className="group relative rounded-3xl border border-white/5 bg-linear-to-b from-neutral-950 to-black p-6 sm:p-8 transition-all duration-500 hover:border-orange-500/30 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.95)] overflow-hidden"
             >
               {/* Dynamic Flash Glow (Hidden natively, blooms aggressively on wrapper element hover) */}
-              <div className="absolute inset-0 bg-radial-gradient from-orange-500/[0.08] via-orange-500/[0.01] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none -z-10 blur-xl scale-110" />
+              <div className="absolute inset-0 bg-radial-gradient from-orange-500/8 via-orange-500/1 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none -z-10 blur-xl scale-110" />
 
               <div className="relative z-10 flex flex-col h-full justify-between gap-6">
                 

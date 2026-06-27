@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef, useMemo } from "react";
-import { motion, useSpring, useTransform, useInView } from "framer-motion";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
+import { motion, useInView } from "framer-motion";
+import { Sparkles } from "lucide-react";
 import Link from "next/link";
 import heroimg from "@/public/hero/ref1.png";
 import Image from "next/image";
@@ -18,7 +18,7 @@ function Counter({ value, label }) {
   const numericValue = parseFloat(value.replace(/[^0-9.]/g, ""));
   const suffix = value.replace(/[0-9.]/g, "");
 
-  const startAnimation = () => {
+  const startAnimation = useCallback(() => {
     if (animationRef.current) {
       window.cancelAnimationFrame(animationRef.current);
     }
@@ -42,7 +42,7 @@ function Counter({ value, label }) {
     };
 
     animationRef.current = window.requestAnimationFrame(step);
-  };
+  }, [numericValue]);
 
   useEffect(() => {
     if (isInView) {
@@ -53,7 +53,7 @@ function Counter({ value, label }) {
         window.cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isInView, numericValue]);
+  }, [isInView, startAnimation]);
 
   // Format decimal values dynamically
   const displayValue = count % 1 === 0 ? Math.round(count) : count.toFixed(1);
@@ -78,7 +78,7 @@ function Counter({ value, label }) {
           className="absolute inset-[-200%] bg-[conic-gradient(from_0deg,transparent_75%,#f97316_88%,#fb923c_98%,transparent_100%)] opacity-30 group-hover:opacity-100 transition-opacity duration-500"
         />
         {/* Solid Content Mask overlaying the light - strictly exposing the 1px border track */}
-        <div className="absolute inset-[1px] bg-[#0a0a0a] group-hover:bg-[#121212] transition-colors duration-300 rounded-[15px]" />
+        <div className="absolute inset-px bg-bg-card group-hover:bg-[#121212] transition-colors duration-300 rounded-[15px]" />
       </div>
 
       <p className="relative z-10 text-xl sm:text-3xl lg:text-4xl font-black bg-linear-to-r from-white via-white to-neutral-400 bg-clip-text text-transparent mb-1.5 tracking-tight group-hover:from-orange-400 group-hover:to-amber-500 transition-all duration-300">
@@ -224,6 +224,7 @@ export default function Hero() {
               src={heroimg}
               alt="Founders ROI Infrastructure Reference"
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 500px"
               priority
               className="object-contain p-2 sm:p-4 drop-shadow-[0_10px_30px_rgba(249,115,22,0.12)] transition-transform duration-700 group-hover:scale-[1.015]"
             />

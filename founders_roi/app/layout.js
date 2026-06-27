@@ -90,7 +90,7 @@ export default function RootLayout({ children }) {
     >
       {/* FIX: Bind font variables directly to the body to clear preload warnings */}
       <body
-        className={`${outfit.variable} ${sora.variable} min-h-full bg-[#030202] text-white antialiased`}
+        className={`${outfit.variable} ${sora.variable} min-h-full bg-bg-primary text-white antialiased`}
       >
         <Navbar />
         {children}

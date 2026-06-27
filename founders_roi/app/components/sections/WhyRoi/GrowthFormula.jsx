@@ -32,7 +32,7 @@ export default function GrowthFormula() {
   const [hoveredCard, setHoveredCard] = useState(null);
 
   return (
-    <section className="relative py-32 px-4 sm:px-8 lg:px-16 bg-[#030202] text-white overflow-hidden select-none border-b border-neutral-900/40">
+    <section className="relative py-32 px-4 sm:px-8 lg:px-16 bg-bg-primary text-white overflow-hidden select-none border-b border-neutral-900/40">
 
       {/* ================= BACKGROUND GRADIENT MESH ENGINE ================= */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-orange-500/5 via-transparent to-transparent blur-[160px] pointer-events-none" />
@@ -48,7 +48,7 @@ export default function GrowthFormula() {
           </div>
 
           <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl leading-[1.15] mb-5">
-            The <span className="bg-gradient-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">3 Layer</span> Growth Formula
+            The <span className="bg-linear-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">3 Layer</span> Growth Formula
           </h2>
 
           <p className="text-neutral-400 font-light max-w-xl text-sm sm:text-base leading-relaxed">
@@ -98,13 +98,13 @@ export default function GrowthFormula() {
                     <div className="flex items-center justify-between gap-4">
                       {/* Premium Icon Container Node */}
                       <div className={`p-3.5 rounded-xl border transition-all duration-500 ${isHovered
-                          ? "bg-gradient-to-r from-orange-500 to-amber-500 text-black border-transparent shadow-lg rotate-[-4deg]"
+                          ? "bg-linear-to-r from-orange-500 to-amber-500 text-black border-transparent shadow-lg rotate-[-4deg]"
                           : "bg-neutral-900 border-neutral-800 text-orange-400"
                         }`}>
                         <Icon size={20} />
                       </div>
                     </div>
-
+ 
                     {/* TEXT INFORMATION AREA */}
                     <div className="space-y-3">
                       <h3 className={`text-xl font-bold tracking-tight transition-colors duration-300 ${isHovered ? 'text-orange-400' : 'text-white'}`}>
@@ -117,7 +117,7 @@ export default function GrowthFormula() {
                   </div>
                   {/* Fine Bottom Interactive Tracker Bar */}
                   <div className="relative w-full h-[1px] bg-neutral-900 overflow-hidden mt-4">
-                    <div className={`absolute inset-0 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 transition-all duration-500 ease-out ${isHovered ? 'w-full' : 'w-0'}`} />
+                    <div className={`absolute inset-0 bg-linear-to-r from-orange-500 via-amber-500 to-orange-600 transition-all duration-500 ease-out ${isHovered ? 'w-full' : 'w-0'}`} />
                   </div>
                 </div>
               </motion.div>

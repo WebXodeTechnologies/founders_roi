@@ -24,7 +24,7 @@ const CaseStudy = () => {
   return (
     <section className="w-full bg-black text-white py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* BACKGROUND GRADIENT */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-orange-950/20 to-black opacity-60" />
+      <div className="absolute inset-0 bg-linear-to-br from-black via-orange-950/20 to-black opacity-60" />
 
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
         {/* LEFT CONTENT */}
@@ -64,7 +64,7 @@ const CaseStudy = () => {
                     initial={{ width: 0 }}
                     whileInView={{ width: item.width }}
                     transition={{ duration: 1, delay: i * 0.2 }}
-                    className="h-full rounded-full bg-gradient-to-r from-orange-500 to-yellow-400"
+                    className="h-full rounded-full bg-linear-to-r from-orange-500 to-yellow-400"
                   />
                 </div>
               </div>

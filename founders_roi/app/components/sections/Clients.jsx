@@ -52,7 +52,7 @@ export default function ClientsCarousel() {
           </motion.div>
 
           <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl md:text-6xl leading-[1.15]">
-            Brands We’ve <span className="bg-gradient-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">Delivered For</span>
+            Brands We’ve <span className="bg-linear-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">Delivered For</span>
           </h2>
           <p className="mt-4 text-sm sm:text-base text-neutral-400 max-w-lg font-light leading-relaxed">
     Powering fast-scaling startups and enterprises with high-impact, predictable growth systems.
@@ -94,15 +94,15 @@ function LargeInteractiveLogoCard({ client }) {
 
   return (
     <motion.div
-      className="w-72 h-60 sm:w-[350px] sm:h-50 [perspective:1000px]"
+      className="w-72 h-60 sm:w-[350px] sm:h-50 perspective-[1000px]"
       style={{ rotateX, rotateY }}
       onMouseMove={handleMouseMove}
       onMouseLeave={() => { x.set(0); y.set(0); }}
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
-      <div className="group relative w-full h-full flex items-center justify-center rounded-[2rem] border border-white/10 bg-neutral-900/40 backdrop-blur-md p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-orange-500/30">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]" />
+      <div className="group relative w-full h-full flex items-center justify-center rounded-4xl border border-white/10 bg-neutral-900/40 backdrop-blur-md p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-orange-500/30">
+        <div className="absolute inset-0 bg-linear-to-br from-orange-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-4xl" />
         
         <div className="relative w-full h-full flex items-center justify-center p-2">
           <Image

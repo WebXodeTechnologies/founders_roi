@@ -110,7 +110,7 @@ export default function Platforms() {
                   className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_75%,#f97316_85%,#fb923c_95%,transparent_100%)] opacity-35 group-hover:opacity-100 transition-opacity duration-300"
                 />
                 {/* Solid Content Mask */}
-                <div className="absolute inset-[1px] bg-[#0a0a0a] rounded-[11px] transition-colors duration-300 group-hover:bg-[#121212]" />
+                <div className="absolute inset-px bg-bg-card rounded-[11px] transition-colors duration-300 group-hover:bg-[#121212]" />
               </div>
 
               {/* 🌟 FLASH/SHINE SWEEP EFFECT 🌟 */}
@@ -118,7 +118,7 @@ export default function Platforms() {
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "100%" }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none z-0"
+                className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent pointer-events-none z-0"
               />
 
               {/* Volumetric Glow behind the card */}

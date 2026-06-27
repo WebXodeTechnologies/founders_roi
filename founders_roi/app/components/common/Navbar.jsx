@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Menu, X, Logs } from "lucide-react";
+import { ArrowRight, X, Logs } from "lucide-react";
 import Logo from "@/public/logo/logo.png";
 
 export default function Navbar() {
@@ -55,7 +55,7 @@ export default function Navbar() {
         } ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
         <nav 
-          className={`mx-auto flex max-w-7xl items-center justify-between rounded-full px-4 sm:px-6 transition-all duration-300 border backdrop-blur-[12px] ${
+          className={`mx-auto flex max-w-7xl items-center justify-between rounded-full px-4 sm:px-6 transition-all duration-300 border backdrop-blur-md ${
             scrolled 
               ? "h-14 max-w-5xl bg-zinc-950/80 border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)]" 
               : "h-16 bg-zinc-950/40 border-white/5 shadow-none"
@@ -70,6 +70,7 @@ export default function Navbar() {
                 src={Logo}
                 alt="Founders ROI"
                 fill
+                sizes="36px"
                 priority
                 className="object-contain"
               />
@@ -116,7 +117,7 @@ export default function Navbar() {
           <div className="hidden lg:flex relative z-10">
             <Link
               href="/contact"
-              className="group relative inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-4 py-2 text-xs font-bold text-white shadow-[0_4px_16px_rgba(249,115,22,0.25)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_6px_20px_rgba(249,115,22,0.4)] active:scale-[0.98]"
+              className="group relative inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full bg-linear-to-r from-orange-500 to-amber-500 px-4 py-2 text-xs font-bold text-white shadow-[0_4px_16px_rgba(249,115,22,0.25)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_6px_20px_rgba(249,115,22,0.4)] active:scale-[0.98]"
             >
               <span>Book A Call</span>
               <ArrowRight
@@ -147,7 +148,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[90] bg-black/80 backdrop-blur-lg"
+              className="fixed inset-0 z-90 bg-black/80 backdrop-blur-lg"
               onClick={() => setIsOpen(false)}
             />
 
@@ -157,13 +158,13 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
-              className="fixed inset-0 z-[100] flex flex-col bg-zinc-950 px-6 py-6"
+              className="fixed inset-0 z-100 flex flex-col bg-zinc-950 px-6 py-6"
             >
               {/* Top Row */}
               <div className="relative z-50 flex items-center justify-between border-b border-white/5 pb-5">
                 <div className="flex items-center gap-2.5">
                   <div className="relative h-8 w-8">
-                    <Image src={Logo} alt="Logo" fill className="object-contain" />
+                    <Image src={Logo} alt="Logo" fill sizes="32px" className="object-contain" />
                   </div>
                   <span className="text-base font-extrabold tracking-wider text-white">
                     FOUNDERS ROI
@@ -203,7 +204,7 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 py-3.5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(249,115,22,0.25)]"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-linear-to-r from-orange-500 to-amber-500 py-3.5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(249,115,22,0.25)]"
                 >
                   <span>Book a Call</span>
                   <ArrowRight size={16} />

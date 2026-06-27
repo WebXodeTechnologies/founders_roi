@@ -3,14 +3,11 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  ArrowUpRight,
   Megaphone,
   Cpu,
   Network,
-  ShieldCheck,
   Target,
 } from "lucide-react";
-import Link from "next/link";
 import ButtonCTA from "../ui/ButtonCTA";
 
 export default function About() {
@@ -35,8 +32,8 @@ export default function About() {
   return (
     <section className="relative w-full overflow-hidden py-20 sm:py-24 px-4 sm:px-6 lg:px-8">
       {/* ================= PURE GLOW MESH LAYER ================= */}
-      <div className="absolute top-0 left-[-10%] z-0 h-[400px] w-[400px] rounded-full bg-orange-600/[0.08] blur-[150px]" />
-      <div className="absolute bottom-0 right-[-10%] z-0 h-[400px] w-[400px] rounded-full bg-orange-600/[0.08] blur-[150px]" />
+      <div className="absolute top-0 left-[-10%] z-0 h-[400px] w-[400px] rounded-full bg-orange-600/8 blur-[150px]" />
+      <div className="absolute bottom-0 right-[-10%] z-0 h-[400px] w-[400px] rounded-full bg-orange-600/8 blur-[150px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] items-center">
         {/* ================= LEFT SIDE: PREMIUM IMMERSIVE MEDIA FRAME ================= */}
@@ -48,11 +45,11 @@ export default function About() {
           className="relative group w-full max-w-xl mx-auto lg:mx-0"
         >
           {/* Back Glowing Shadow Ring */}
-          <div className="absolute -inset-2 rounded-[32px] bg-gradient-to-tr from-orange-500/10 to-transparent opacity-60 blur-2xl transition-all duration-500 group-hover:opacity-80" />
+          <div className="absolute -inset-2 rounded-[32px] bg-linear-to-tr from-orange-500/10 to-transparent opacity-60 blur-2xl transition-all duration-500 group-hover:opacity-80" />
 
           {/* Bezel Frame */}
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black p-2 shadow-[0_24px_60px_rgba(0,0,0,0.8)]">
-            <div className="relative w-full aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
+            <div className="relative w-full aspect-4/5 sm:aspect-4/3 lg:aspect-4/5">
               <Image
                 src="https://i.pinimg.com/736x/35/47/48/354748471cbad482eccf036d1db1a86c.jpg"
                 alt="Founders ROI Co-Working Execution Team"
@@ -101,7 +98,7 @@ export default function About() {
           <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[2.8rem] xl:text-[3.5rem] leading-[1.15] lg:leading-[1.15]">
             Your In-House <br className="hidden sm:inline" />
             Growth Partner, <br />
-            <span className="bg-gradient-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">
               Not Another Agency.
             </span>
           </h2>
@@ -112,7 +109,7 @@ export default function About() {
               <motion.div
                 key={idx}
                 whileHover={{ x: 4 }}
-                className="group/item flex gap-4 rounded-2xl border border-white/5 bg-white/[0.01] p-4 transition-all duration-300 hover:border-white/10 hover:bg-white/[0.03]"
+                className="group/item flex gap-4 rounded-2xl border border-white/5 bg-white/1 p-4 transition-all duration-300 hover:border-white/10 hover:bg-white/3"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/5 border border-white/5 group-hover/item:border-orange-500/30 group-hover/item:bg-orange-500/10 transition-colors duration-300">
                   {item.icon}

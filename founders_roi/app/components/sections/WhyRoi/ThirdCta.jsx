@@ -8,10 +8,10 @@ export default function ThirdCta() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="w-full bg-[#030202] text-white py-32 px-4 sm:px-8 lg:px-16 relative overflow-hidden select-none border-t border-neutral-900/60">
+    <section className="w-full bg-bg-primary text-white py-32 px-4 sm:px-8 lg:px-16 relative overflow-hidden select-none border-t border-neutral-900/60">
       
       {/* ================= BACKGROUND GRAPHICS & MESH LAYERS ================= */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-br from-orange-500/10 via-purple-500/[0.02] to-transparent blur-[130px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-linear-to-br from-orange-500/10 via-purple-500/2 to-transparent blur-[130px] pointer-events-none rounded-full" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#141414_1px,transparent_1px),linear-gradient(to_bottom,#141414_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_60%,transparent_100%)] opacity-30 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
@@ -51,7 +51,7 @@ export default function ThirdCta() {
             {/* HEADLINE */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-[1.15] max-w-2xl mx-auto">
               Build Systems. <br />
-              <span className="bg-gradient-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">Scale Predictably.</span>
+              <span className="bg-linear-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">Scale Predictably.</span>
             </h2>
 
             {/* DESCRIPTION */}
@@ -70,7 +70,7 @@ export default function ThirdCta() {
                   key={index}
                   className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all duration-500 ${
                     isHovered 
-                      ? "border-orange-500/20 bg-orange-500/[0.02] text-orange-400" 
+                      ? "border-orange-500/20 bg-orange-500/2 text-orange-400" 
                       : "border-neutral-800 bg-neutral-900/40 text-neutral-500"
                   }`}
                 >
@@ -125,7 +125,7 @@ function MagneticCtaButton({ href }) {
       style={{ x: springX, y: springY }}
       whileHover={{ scale: 1.03 }}
       transition={{ type: "spring", stiffness: 220, damping: 16 }}
-      className="relative inline-flex items-center gap-3 px-10 py-4.5 text-sm font-extrabold uppercase tracking-widest rounded-xl bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-black shadow-xl shadow-orange-950/20 group overflow-hidden w-full sm:w-auto justify-center"
+      className="relative inline-flex items-center gap-3 px-10 py-4 text-sm font-extrabold uppercase tracking-widest rounded-xl bg-linear-to-r from-orange-500 via-amber-500 to-orange-600 text-black shadow-xl shadow-orange-950/20 group overflow-hidden w-full sm:w-auto justify-center"
     >
       <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-15 transition-opacity duration-300 pointer-events-none" />
       <div className="absolute -left-full top-0 h-full w-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-[shine_0.9s_ease-in-out] pointer-events-none" />

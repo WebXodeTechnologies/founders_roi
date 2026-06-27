@@ -75,7 +75,7 @@ export default function Testimonials() {
 
       {/* --- MARQUEE ENGINE WRAPPER --- */}
       {/* Mask gradients create smooth fading edges on desktop screens */}
-      <div className="relative flex flex-col gap-6 md:gap-8 w-full max-w-[100vw] sm:px-6 md:px-0 [mask-image:linear-gradient(to_right,transparent,white_15%,white_85%,transparent)] md:[mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+      <div className="relative flex flex-col gap-6 md:gap-8 w-full max-w-[100vw] sm:px-6 md:px-0 mask-[linear-gradient(to_right,transparent,white_15%,white_85%,transparent)] md:mask-[linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
         {/* ROW 1: FLOWS LEFT TO RIGHT */}
         <div className="flex w-full overflow-hidden">
           <motion.div
@@ -121,7 +121,7 @@ function TestimonialCard({ item }) {
   return (
     <div className="w-80 sm:w-90 shrink-0 bg-bg-card border border-border-custom rounded-2xl p-6 relative group transition-colors duration-300 hover:border-orange-500/30">
       {/* Subtle Container Internal Flare */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
+      <div className="absolute inset-0 bg-linear-to-br from-orange-500/2 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
 
       {/* HEADER: LOGO & RATING */}
       <div className="flex items-center justify-between gap-4 mb-5">
@@ -147,7 +147,7 @@ function TestimonialCard({ item }) {
       </p>
 
       {/* ACCOUNT AUTHOR */}
-      <div className="border-t border-[#1f1f1f] pt-4">
+      <div className="border-t border-border-custom pt-4">
         <p className="text-sm font-semibold text-white tracking-wide">
           {item.name}
         </p>

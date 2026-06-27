@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   const socialIcons = [
@@ -19,7 +19,7 @@ export default function Footer() {
 
       {/* ================= BACKGROUND GRAPHICS & AMBIENT GLOW ================= */}
       {/* Upward Facing Deep Orange Horizon Light Flare */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-orange-500/[0.04] blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-orange-500/4 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
 
@@ -47,7 +47,7 @@ export default function Footer() {
 
                 {/* Premium Corporate Brand Identity Text */}
                 <span className="text-xl sm:text-2xl lg:text-4xl font-black tracking-tight text-white transition-colors duration-300 ">
-                  Founders<span className="bg-gradient-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent ml-1" >ROI</span>
+                  Founders<span className="bg-linear-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent ml-1" >ROI</span>
                 </span>
               </Link>
             </div>
@@ -119,7 +119,7 @@ export default function Footer() {
                   aria-label={social.label}
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2.5 bg-neutral-950/80 border border-neutral-900 rounded-xl text-neutral-400 hover:text-black hover:bg-gradient-to-r hover:from-orange-400 hover:to-amber-500 hover:border-transparent transition-all duration-300 shadow-lg cursor-pointer"
+                  className="p-2.5 bg-neutral-950/80 border border-neutral-900 rounded-xl text-neutral-400 hover:text-black hover:bg-linear-to-r hover:from-orange-400 hover:to-amber-500 hover:border-transparent transition-all duration-300 shadow-lg cursor-pointer"
                 >
                   <social.Icon size={14} />
                 </motion.a>
