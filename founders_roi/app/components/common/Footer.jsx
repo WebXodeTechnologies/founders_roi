@@ -50,8 +50,8 @@ export default function Footer() {
                   <Image
                     src="/logo/logo.png"
                     alt="Founders ROI Symbol"
-                    width={200}
-                    height={200}
+                    fill
+                    sizes="160px"
                     className="object-cover"
                     priority
                   />

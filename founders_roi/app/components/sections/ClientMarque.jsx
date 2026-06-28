@@ -4,20 +4,20 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const clients = [
-  { name: "Aliens Photography", logo: "/clientImages/AlienPhotography.png" },
-  { name: "Candier Photography", logo: "/clientImages/CandierPhotography.png" },
-  { name: "Capicture", logo: "/clientImages/capicture.jpg" },
-  { name: "Carnival", logo: "/clientImages/carnival.png" },
+  { name: "Aliens Photography", logo: "/clientimagebgremoved/AlienPhotography-removebg-preview.png" },
+  { name: "Candier Photography", logo: "/clientimagebgremoved/CandierPhotography-removebg-preview.png" },
+  { name: "Capicture", logo: "/clientImages/Capicture.jpg" },
+  { name: "Carnival", logo: "/clientImages/carnival-logo.png" },
   { name: "Chikmangalur Vibes", logo: "/clientImages/chikmangalurVibes.jpg" },
   { name: "EWS Logo", logo: "/clientImages/EWS logo.png" },
   { name: "Fresh Frames", logo: "/clientImages/freshframes.in.jpg" },
   { name: "Leo Photography", logo: "/clientImages/LeoPhotogrpahy.jpg" },
-  { name: "Hi Proteins", logo: "/clientImages/Hiprotein.png" },
-  { name: "House of Memories", logo: "/clientImages/HouseofMemories.jpeg" },
-  { name: "L & H", logo: "/clientImages/L&H.png" },
-  { name: "Lexa Holidays", logo: "/clientImages/Lexa Holidays.jpeg" },
-  { name: "S4C", logo: "/clientImages/S4C.png" },
-  { name: "Splash Eventia", logo: "/clientImages/SplashEventia.jpg" },
+  { name: "Hi Proteins", logo: "/clientimagebgremoved/Hiprotein-removebg-preview.png" },
+  { name: "House of Memories", logo: "/clientimagebgremoved/HouseofMemories-removebg-preview.png" },
+  { name: "L & H", logo: "/clientimagebgremoved/L_H-removebg-preview.png" },
+  { name: "Lexa Holidays", logo: "/clientimagebgremove/Lexa_Holidays-removebg-preview.png" },
+  { name: "S4C", logo: "/clientimagebgremoved/S4C-removebg-preview.png" },
+  { name: "Splash Eventia", logo: "/clientimagebgremoved/SplashEventia-removebg-preview.png" },
   { name: "TH", logo: "/clientImages/TH.png" },
   { name: "Triberry Studios", logo: "/clientImages/triberrystudioslogo.png" },
 ];
@@ -69,10 +69,9 @@ const ClientMarquee = () => {
               <Image
                 src={client.logo}
                 alt={client.name}
-                width={160}
-                height={80}
-                style={{ width: "auto", height: "auto" }}
-                className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105 select-none"
+                fill
+                sizes="(max-width: 640px) 144px, 176px"
+                className="object-contain transition-transform duration-300 group-hover:scale-105 select-none"
               />
             </div>
           ))}

@@ -242,7 +242,7 @@ export default function Hero() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 w-full">
             <Counter value="8X" label="Revenue Growth" />
             <Counter value="6000%" label="ROAS Delivered" />
-            <Counter value="100M" label="Views Generated" />
+            <Counter value="125+" label="Campaigns Scaled" />
             <Counter value="3.3 CR" label="Revenue Generated" />
           </div>
         </motion.div>

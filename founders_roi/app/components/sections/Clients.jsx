@@ -108,9 +108,8 @@ function LargeInteractiveLogoCard({ client }) {
           <Image
             src={encodeURI(client.logo)}
             alt={client.name}
-            width={320}
-            height={200}
-            style={{ width: "auto", height: "auto" }}
+            fill
+            sizes="(max-width: 640px) 288px, 350px"
             className="object-contain p-4 group-hover:opacity-100 transition-all duration-500"
           />
         </div>

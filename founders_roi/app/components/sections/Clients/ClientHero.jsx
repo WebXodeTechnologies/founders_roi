@@ -81,9 +81,8 @@ export default function ClientHero() {
                   <Image
                     src={encodeURI(brand.logo)}
                     alt={brand.name}
-                    width={128}
-                    height={48}
-                    style={{ width: "auto", height: "auto" }}
+                    fill
+                    sizes="128px"
                     className="object-contain filter brightness-100 contrast-100"
                     unoptimized
                   />
@@ -106,9 +105,8 @@ export default function ClientHero() {
                   <Image
                     src={encodeURI(brand.logo)}
                     alt={brand.name}
-                    width={128}
-                    height={48}
-                    style={{ width: "auto", height: "auto" }}
+                    fill
+                    sizes="128px"
                     className="object-contain filter brightness-100 contrast-100"
                     unoptimized
                   />
