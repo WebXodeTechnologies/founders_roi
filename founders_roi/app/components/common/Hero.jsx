@@ -134,10 +134,10 @@ export default function Hero() {
   // Auto-cycling pill carousel data
   const pillMessages = useMemo(
     () => [
+      "One stop All business development solutions",
       "Partnering with Google & Meta for maximum performance scaling.",
       "Engineered for 10x ROAS with zero budget wastage.",
       "Proprietary AI attribution modeling for clear ROI tracking.",
-      "One stop All business development solutions",
     ],
     [],
   );
@@ -364,8 +364,8 @@ export default function Hero() {
                 <span
                   key={idx}
                   className={`w-5 h-5 rounded-full border flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${activePillIndex === idx
-                      ? "bg-black text-orange-400 border-black"
-                      : "bg-black/5 border-black/10"
+                    ? "bg-black text-orange-400 border-black"
+                    : "bg-black/5 border-black/10"
                     }`}
                 >
                   {idx + 1}
