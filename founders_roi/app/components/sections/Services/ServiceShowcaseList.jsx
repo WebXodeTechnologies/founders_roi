@@ -71,8 +71,87 @@ function AnimatedCounter({ value }) {
     };
   }, [value, isInView]);
 
-  return <span ref={ref} className="font-mono">{displayVal || value}</span>;
+  return <span ref={ref} style={{ fontFamily: "var(--font-sora)" }} className="tabular-nums">{displayVal || value}</span>;
 }
+
+// Real-Time Metrics Panel with sequential active glowing border and accent transition
+function MetricsPanel({ metrics }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % 3);
+    }, 3000); // Shift every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+
+  const getIsActive = (idx) => {
+    if (hoveredIndex !== null) {
+      return hoveredIndex === idx;
+    }
+    return activeIndex === idx;
+  };
+
+  return (
+    <div className="grid grid-cols-3 gap-3">
+      {metrics.map((metric, mIdx) => {
+        const isActive = getIsActive(mIdx);
+
+        return (
+          <div
+            key={mIdx}
+            onMouseEnter={() => setHoveredIndex(mIdx)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            className="p-4 rounded-xl text-center transition-all duration-500 relative group/metric overflow-hidden bg-neutral-900/15 backdrop-blur-md border border-white/5 cursor-pointer"
+          >
+            {/* Volumetric ambient background glow */}
+            <div
+              className={`absolute inset-0 transition-opacity duration-500 pointer-events-none z-0 ${isActive ? "opacity-100" : "opacity-0"
+                }`}
+              style={{
+                backgroundImage: "radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%)"
+              }}
+            />
+
+            {/* Rotating Conic Border Accent */}
+            <div
+              className={`absolute inset-0 rounded-xl pointer-events-none overflow-hidden z-0 transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0"
+                }`}
+            >
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3.5, ease: "linear", repeat: Infinity }}
+                style={{ originX: "50%", originY: "50%" }}
+                className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_75%,#f97316_85%,#fb923c_95%,transparent_100%)]"
+              />
+              <div className="absolute inset-px bg-neutral-950/80 rounded-[11px]" />
+            </div>
+
+            {/* Content Display */}
+            <div className="relative z-10 space-y-1">
+              <p
+                className={`text-lg sm:text-xl font-black bg-linear-to-r transition-all duration-500 tracking-tight ${isActive
+                    ? "from-orange-400 to-amber-300 bg-clip-text text-transparent scale-[1.03]"
+                    : "from-white to-neutral-400 bg-clip-text text-transparent"
+                  }`}
+              >
+                <AnimatedCounter value={metric.value} />
+              </p>
+              <p
+                className={`text-[9px] font-bold uppercase tracking-widest transition-colors duration-500 ${isActive ? "text-orange-400/90" : "text-neutral-500"
+                  }`}
+              >
+                {metric.label}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 
 // Client Case-Studies Mapped exactly to Niches specified by the user
 const comprehensiveServices = [
@@ -225,24 +304,7 @@ export default function ServiceShowcaseList() {
                 </div>
 
                 {/* Real-Time Metrics Widget Panel */}
-                <div className="grid grid-cols-3 gap-3">
-                  {service.metrics.map((metric, mIdx) => (
-                    <div
-                      key={mIdx}
-                      className="p-4 rounded-xl bg-neutral-900/15 backdrop-blur-md text-center hover:bg-neutral-900/30 transition-colors duration-300 relative group/metric overflow-hidden"
-                    >
-                      {/* Active glow backing */}
-                      <div className="absolute inset-0 bg-linear-to-b from-orange-500/2 to-transparent opacity-0 group-hover/metric:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-                      <p className="text-lg sm:text-xl font-black bg-linear-to-r from-white to-neutral-400 bg-clip-text text-transparent tracking-tight">
-                        <AnimatedCounter value={metric.value} />
-                      </p>
-                      <p className="text-[9px] text-neutral-500 font-bold uppercase tracking-widest mt-1">
-                        {metric.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <MetricsPanel metrics={service.metrics} />
               </motion.div>
 
               {/* COPY CONTENT SIDE */}

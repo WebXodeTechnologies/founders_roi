@@ -8,8 +8,8 @@ import { Sparkles } from "lucide-react";
 const row1 = [
   { name: "Aliens Photography", logo: "/clientImages/AlienPhotography.png" },
   { name: "Candier Photography", logo: "/clientImages/CandierPhotography.png" },
-  { name: "Capicture", logo: "/clientImages/capicture.jpg" },
-  { name: "Carnival", logo: "/clientImages/carnival.png" },
+  { name: "Capicture", logo: "/clientImages/Capicture.jpg" },
+  { name: "Carnival", logo: "/clientImages/carnival-logo.png" },
   { name: "Chikmangalur Vibes", logo: "/clientImages/chikmangalurVibes.jpg" },
   { name: "EWS Logo", logo: "/clientImages/EWS logo.png" },
   { name: "Fresh Frames", logo: "/clientImages/freshframes.in.jpg" },
@@ -17,14 +17,17 @@ const row1 = [
 ];
 
 const row2 = [
-  { name: "Hi Proteins", logo: "/clientImages/Hiprotein.png" },
+  { name: "Hi Proteins", logo: "/clientimagebgremoved/Hiprotein-removebg-preview.png" },
   { name: "House of Memories", logo: "/clientImages/HouseofMemories.jpeg" },
-  { name: "L & H", logo: "/clientImages/L&H.png" },
+  { name: "L & H", logo: "/clientimagebgremoved/L_H-removebg-preview.png" },
   { name: "Lexa Holidays", logo: "/clientImages/Lexa Holidays.jpeg" },
   { name: "S4C", logo: "/clientImages/S4C.png" },
   { name: "Splash Eventia", logo: "/clientImages/SplashEventia.jpg" },
   { name: "TH", logo: "/clientImages/TH.png" },
   { name: "Triberry Studios", logo: "/clientImages/triberrystudioslogo.png" },
+  { name: "Kamarajar College of Nursing", logo: "/clientImages/KSAnursing.jpeg" },
+  { name: "Kamarajar College of Pharmacy", logo: "/clientImages/KSA.jpeg" },
+  { name: "Webxode Technologies", logo: "/clientImages/webxodelogocropped-removebg-preview.png" },
 ];
 
 const loopRow1 = [...row1, ...row1, ...row1];
@@ -41,7 +44,7 @@ export default function ClientsCarousel() {
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="text-center mb-24 flex flex-col items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -103,7 +106,7 @@ function LargeInteractiveLogoCard({ client }) {
     >
       <div className="group relative w-full h-full flex items-center justify-center rounded-4xl border border-white/10 bg-neutral-900/40 backdrop-blur-md p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-orange-500/30">
         <div className="absolute inset-0 bg-linear-to-br from-orange-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-4xl" />
-        
+
         <div className="relative w-full h-full flex items-center justify-center p-2">
           <Image
             src={encodeURI(client.logo)}

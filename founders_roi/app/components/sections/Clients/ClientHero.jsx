@@ -9,7 +9,7 @@ const marqueeRowOne = [
   { name: "Aliens Photography", logo: "/clientImages/AlienPhotography.png" },
   { name: "Candier Photography", logo: "/clientImages/CandierPhotography.png" },
   { name: "Capicture", logo: "/clientImages/Capicture.jpg" },
-  { name: "Carnival", logo: "/clientImages/Carnival.png" },
+  { name: "Carnival", logo: "/clientImages/carnival-logo.png" },
   { name: "Chikmangalur Vibes", logo: "/clientImages/chikmangalurVibes.jpg" },
   { name: "EWS Logo", logo: "/clientImages/EWS logo.png" },
   { name: "Fresh Frames", logo: "/clientImages/freshframes.in.jpg" },
@@ -17,15 +17,20 @@ const marqueeRowOne = [
 ];
 
 const marqueeRowTwo = [
-  { name: "Hi Proteins", logo: "/clientImages/Hiprotein.png" },
+  { name: "Hi Proteins", logo: "/clientimagebgremoved/Hiprotein-removebg-preview.png" },
   { name: "House of Memories", logo: "/clientImages/HouseofMemories.jpeg" },
-  { name: "L & H", logo: "/clientImages/L&H.png" },
+  { name: "L & H", logo: "/clientimagebgremoved/L_H-removebg-preview.png" },
   { name: "Lexa Holidays", logo: "/clientImages/Lexa Holidays.jpeg" },
   { name: "S4C", logo: "/clientImages/S4C.png" },
   { name: "Splash Eventia", logo: "/clientImages/SplashEventia.jpg" },
   { name: "TH", logo: "/clientImages/TH.png" },
   { name: "Triberry Studios", logo: "/clientImages/triberrystudioslogo.png" },
+  { name: "Kamarajar College of Nursing", logo: "/clientImages/KSAnursing.jpeg" },
+  { name: "Kamarajar College of Pharmacy", logo: "/clientImages/KSA.jpeg" },
+  { name: "Webxode Technologies", logo: "/clientImages/webxodelogocropped-removebg-preview.png" },
 ];
+
+
 
 export default function ClientHero() {
   return (

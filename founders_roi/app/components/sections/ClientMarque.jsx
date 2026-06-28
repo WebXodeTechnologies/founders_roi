@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const clients = [
-  { name: "Aliens Photography", logo: "/clientimagebgremoved/AlienPhotography-removebg-preview.png" },
-  { name: "Candier Photography", logo: "/clientimagebgremoved/CandierPhotography-removebg-preview.png" },
+  { name: "Aliens Photography", logo: "/clientImages/AlienPhotography.png" },
+  { name: "Candier Photography", logo: "/clientImages/CandierPhotography.png" },
   { name: "Capicture", logo: "/clientImages/Capicture.jpg" },
   { name: "Carnival", logo: "/clientImages/carnival-logo.png" },
   { name: "Chikmangalur Vibes", logo: "/clientImages/chikmangalurVibes.jpg" },
@@ -20,12 +20,12 @@ const clients = [
   { name: "Splash Eventia", logo: "/clientImages/SplashEventia.jpg" },
   { name: "TH", logo: "/clientImages/TH.png" },
   { name: "Triberry Studios", logo: "/clientImages/triberrystudioslogo.png" },
+  { name: "Kamarajar College of Nursing", logo: "/clientImages/KSAnursing.jpeg" },
+  { name: "Kamarajar College of Pharmacy", logo: "/clientImages/KSA.jpeg" },
+  { name: "Webxode Technologies", logo: "/clientImages/webxodelogocropped-removebg-preview.png" },
 ];
 
 const ClientMarquee = () => {
-  // Triple the array to ensure seamless infinite looping animation
-  const loopClients = [...clients, ...clients, ...clients];
-
   return (
     <section className="w-full bg-black py-16 overflow-hidden relative">
       {/* Background Ambient Glows */}
@@ -57,24 +57,45 @@ const ClientMarquee = () => {
 
         {/* Marquee Row */}
         <motion.div
-          animate={{ x: ["0%", "-33.333%"] }}
+          animate={{ x: ["0%", "-50%"] }}
           transition={{ ease: "linear", duration: 35, repeat: Infinity }}
-          className="flex gap-12 w-max py-2 items-center"
+          className="flex w-max py-2 items-center"
         >
-          {loopClients.map((client, idx) => (
-            <div
-              key={idx}
-              className="group relative flex items-center justify-center bg-transparent transition-all duration-300 hover:scale-105 shrink-0 h-16 w-36 sm:h-20 sm:w-44 overflow-hidden cursor-pointer"
-            >
-              <Image
-                src={client.logo}
-                alt={client.name}
-                fill
-                sizes="(max-width: 640px) 144px, 176px"
-                className="object-contain transition-transform duration-300 group-hover:scale-105 select-none"
-              />
-            </div>
-          ))}
+          {/* Track 1 */}
+          <div className="flex gap-12 shrink-0 items-center pr-12">
+            {clients.map((client, idx) => (
+              <div
+                key={idx}
+                className="group relative flex items-center justify-center bg-transparent transition-all duration-300 hover:scale-105 shrink-0 h-16 w-36 sm:h-20 sm:w-44 overflow-hidden cursor-pointer"
+              >
+                <Image
+                  src={client.logo}
+                  alt={client.name}
+                  fill
+                  sizes="(max-width: 640px) 144px, 176px"
+                  className="object-contain transition-transform duration-300 group-hover:scale-105 select-none"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Track 2 */}
+          <div className="flex gap-12 shrink-0 items-center pr-12">
+            {clients.map((client, idx) => (
+              <div
+                key={`dup-${idx}`}
+                className="group relative flex items-center justify-center bg-transparent transition-all duration-300 hover:scale-105 shrink-0 h-16 w-36 sm:h-20 sm:w-44 overflow-hidden cursor-pointer"
+              >
+                <Image
+                  src={client.logo}
+                  alt={client.name}
+                  fill
+                  sizes="(max-width: 640px) 144px, 176px"
+                  className="object-contain transition-transform duration-300 group-hover:scale-105 select-none"
+                />
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

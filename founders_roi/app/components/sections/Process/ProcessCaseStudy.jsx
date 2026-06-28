@@ -61,7 +61,7 @@ function AnimatedCounter({ value }) {
     };
   }, [value, isInView]);
 
-  return <span ref={ref} className="font-mono">{displayVal || value}</span>;
+  return <span ref={ref} style={{ fontFamily: "var(--font-sora)" }} className="tabular-nums">{displayVal || value}</span>;
 }
 
 const metrics = [

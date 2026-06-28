@@ -147,16 +147,18 @@ export default function VideoTestimonial() {
           {/* Main Video Element */}
           <video
             ref={videoRef}
-            src="/testimonial/Capicture Testimonial.MP4"
             className="w-full h-full object-cover"
             loop
             playsInline
             webkit-playsinline="true"
-            muted={true}
+            muted={isMuted}
             preload="metadata"
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
-          />
+          >
+            <source src="/testimonial/Capicture%20Testimonial.MP4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
 
           {/* Initial Play Overlay - Shows in center if not playing */}
           {!isPlaying && (
@@ -177,8 +179,8 @@ export default function VideoTestimonial() {
           )}
 
           {/* PREMIUM FLOATING CONTROL BAR */}
-          <div 
-            onClick={(e) => e.stopPropagation()} 
+          <div
+            onClick={(e) => e.stopPropagation()}
             className="absolute bottom-4 inset-x-4 h-12 bg-neutral-950/80 backdrop-blur-md border border-white/10 rounded-2xl flex items-center px-4 justify-between gap-4 transition-all duration-350 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 z-30 cursor-default"
           >
             {/* Play/Pause Button */}
@@ -196,16 +198,16 @@ export default function VideoTestimonial() {
             </div>
 
             {/* Scrubber timeline track */}
-            <div 
+            <div
               onClick={handleScrub}
               className="flex-1 h-1 bg-white/15 rounded-full relative cursor-pointer group/scrub py-2 flex items-center"
             >
               <div className="w-full h-1 bg-white/10 rounded-full relative">
-                <div 
+                <div
                   className="h-full rounded-full bg-linear-to-r from-orange-500 to-amber-500 absolute left-0 top-0"
                   style={{ width: `${progress}%` }}
                 />
-                <div 
+                <div
                   className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white border border-orange-500 shadow-md scale-0 group-hover/scrub:scale-100 transition-transform duration-200 pointer-events-none"
                   style={{ left: `calc(${progress}% - 5px)` }}
                 />

@@ -226,11 +226,14 @@ export default function ProcessTimeline() {
 
                 {/* CENTRAL KNOB */}
                 <div className="absolute left-6 sm:left-1/2 top-8 sm:top-auto -translate-x-1/2 z-20">
-                  <div className={`w-11 h-11 rounded-xl border flex items-center justify-center font-mono text-sm font-black shadow-2xl transition-all duration-500 ${
-                    isLive 
-                      ? "bg-linear-to-r from-orange-500 to-amber-500 border-transparent text-black scale-110 rotate-6 shadow-[0_0_15px_rgba(249,115,22,0.4)]" 
-                      : "bg-[#050505] border-neutral-800 text-neutral-500"
-                  }`}>
+                  <div 
+                    style={{ fontFamily: "var(--font-sora)" }}
+                    className={`w-11 h-11 rounded-xl border flex items-center justify-center tabular-nums text-sm font-black shadow-2xl transition-all duration-500 ${
+                      isLive 
+                        ? "bg-linear-to-r from-orange-500 to-amber-500 border-transparent text-black scale-110 rotate-6 shadow-[0_0_15px_rgba(249,115,22,0.4)]" 
+                        : "bg-[#050505] border-neutral-800 text-neutral-500"
+                    }`}
+                  >
                     {node.step}
                   </div>
                   
