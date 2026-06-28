@@ -156,8 +156,7 @@ export default function VideoTestimonial() {
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
           >
-            <source src="/testimonial/CapictureTestimonial.mp4" type="video/mp4" />
-            <source src="/testimonial/CapictureTestimonial-hires.MP4" type="video/mp4" />
+            <source src="/testimonial/CapictureTestimonial.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
 
