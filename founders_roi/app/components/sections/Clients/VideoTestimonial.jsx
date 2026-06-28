@@ -135,19 +135,30 @@ export default function VideoTestimonial() {
         </h2>
       </div>
 
-      <div ref={playerRef} className="w-full max-w-2xl lg:max-w-[360px] mx-auto relative group">
+      <div
+        ref={playerRef}
+        className={`w-full mx-auto relative group transition-all duration-300 ${isFullscreen
+          ? "max-w-none h-screen bg-black flex items-center justify-center"
+          : "max-w-[320px] sm:max-w-[360px]"
+          }`}
+      >
 
         {/* Glow border backdrop */}
-        <div className="absolute -inset-1 bg-linear-to-r from-orange-500 to-amber-500 rounded-3xl blur-md opacity-20 group-hover:opacity-35 transition duration-1000 pointer-events-none" />
+        {!isFullscreen && (
+          <div className="absolute -inset-1 bg-linear-to-r from-orange-500 to-amber-500 rounded-3xl blur-md opacity-20 group-hover:opacity-35 transition duration-1000 pointer-events-none" />
+        )}
 
         <div
           onClick={togglePlay}
-          className="relative rounded-3xl overflow-hidden bg-neutral-950 shadow-2xl cursor-pointer aspect-video lg:aspect-9/16"
+          className={`relative overflow-hidden bg-neutral-950 shadow-2xl cursor-pointer transition-all duration-300 ${isFullscreen
+            ? "w-full h-full rounded-none"
+            : "rounded-3xl aspect-9/16 w-full"
+            }`}
         >
           {/* Main Video Element */}
           <video
             ref={videoRef}
-            className="w-full h-full object-cover"
+            className={`w-full h-full ${isFullscreen ? "object-contain" : "object-cover"}`}
             loop
             playsInline
             webkit-playsinline="true"

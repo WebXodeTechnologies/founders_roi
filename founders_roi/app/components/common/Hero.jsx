@@ -1,15 +1,14 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
-import heroimg from "@/public/hero/ref1.png";
 import Image from "next/image";
 import ButtonCTA from "../ui/ButtonCTA";
 
-// 1. Counter Helper Component
-function Counter({ value, label }) {
+// 1. Sleek Minimalist Counter Component
+function Counter({ value, label, align = "center" }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [count, setCount] = useState(0);
@@ -55,36 +54,25 @@ function Counter({ value, label }) {
     };
   }, [isInView, startAnimation]);
 
-  // Format decimal values dynamically
   const displayValue = count % 1 === 0 ? Math.round(count) : count.toFixed(1);
+
+  const alignmentClasses = {
+    left: "text-left items-start",
+    right: "text-right items-end",
+    center: "text-center items-center",
+  }[align];
 
   return (
     <div
       ref={ref}
       onMouseEnter={startAnimation}
-      className="group relative flex flex-col justify-center items-center p-3 sm:p-5 lg:p-6 rounded-2xl text-center shadow-xl overflow-hidden cursor-pointer"
+      className={`group relative flex flex-col justify-center ${alignmentClasses} cursor-pointer p-4 transition-all duration-300 hover:scale-105`}
     >
-      {/* 🌟 LIVE ANIMATED BORDER TRACKS 🌟 */}
-      <div className="absolute inset-0 rounded-2xl pointer-events-none overflow-hidden">
-        {/* Background Rotating Conic Light */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 6,
-            ease: "linear",
-            repeat: Infinity,
-          }}
-          style={{ originX: "50%", originY: "50%" }}
-          className="absolute inset-[-200%] bg-[conic-gradient(from_0deg,transparent_75%,#f97316_88%,#fb923c_98%,transparent_100%)] opacity-30 group-hover:opacity-100 transition-opacity duration-500"
-        />
-        {/* Solid Content Mask overlaying the light - strictly exposing the 1px border track */}
-        <div className="absolute inset-px bg-bg-card group-hover:bg-[#121212] transition-colors duration-300 rounded-[15px]" />
-      </div>
-
-      <p className="relative z-10 text-xl sm:text-3xl lg:text-4xl font-black bg-linear-to-r from-white via-white to-neutral-400 bg-clip-text text-transparent mb-1.5 tracking-tight group-hover:from-orange-400 group-hover:to-amber-500 transition-all duration-300">
-        {displayValue}{suffix}
+      <p className="text-3xl sm:text-4xl lg:text-5xl font-black bg-linear-to-r from-white via-white to-neutral-400 bg-clip-text text-transparent tracking-tight group-hover:from-orange-400 group-hover:to-amber-500 transition-all duration-300 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)] group-hover:drop-shadow-[0_0_20px_rgba(249,115,22,0.15)]">
+        {displayValue}
+        {suffix}
       </p>
-      <p className="relative z-10 text-[8px] sm:text-[10px] text-white/40 uppercase tracking-[0.15em] font-bold group-hover:text-white/70 transition-colors duration-300">
+      <p className="text-[9px] sm:text-[10px] text-white/40 uppercase tracking-[0.2em] font-bold group-hover:text-white/80 transition-colors duration-300 mt-1">
         {label}
       </p>
     </div>
@@ -92,6 +80,7 @@ function Counter({ value, label }) {
 }
 
 export default function Hero() {
+  // Typing dynamic word setup
   const words = useMemo(
     () => [
       "Branding",
@@ -130,6 +119,49 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, currentWordIndex, words]);
 
+  // Parallax mouse position state
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const x = (e.clientX - window.innerWidth / 2) / 35;
+      const y = (e.clientY - window.innerHeight / 2) / 35;
+      setMousePos({ x, y });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  // Auto-cycling pill carousel data
+  const pillMessages = useMemo(
+    () => [
+      "Partnering with Google & Meta for maximum performance scaling.",
+      "Engineered for 10x ROAS with zero budget wastage.",
+      "Proprietary AI attribution modeling for clear ROI tracking.",
+      "One stop All business development solutions",
+    ],
+    [],
+  );
+  const [activePillIndex, setActivePillIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActivePillIndex((prev) => (prev + 1) % pillMessages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [pillMessages]);
+
+  // Fluctuating server ping telemetry
+  const [pingVal, setPingVal] = useState(14);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPingVal((prev) => {
+        const change = Math.floor(Math.random() * 5) - 2; // -2 to +2
+        const next = prev + change;
+        return Math.max(10, Math.min(25, next));
+      });
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative flex w-full items-center justify-center overflow-hidden pt-25 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 px-4 sm:px-6 lg:px-8">
       {/* BLINKING CURSOR STYLE */}
@@ -153,31 +185,97 @@ export default function Hero() {
           playsInline
           className="absolute inset-0 h-full w-full object-cover opacity-50 select-none mix-blend-screen"
         >
-          <source src="/bg-vdo/1.mp4" type="video/mp4" />
+          <source src="/bg-vdo/pexels-bg.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-black" />
-        <div className="absolute top-1/3 lg:top-1/2 right-1/2 lg:right-[-10%] -z-10 h-[280px] w-[280px] sm:h-[500px] sm:w-[500px] lg:h-[750px] lg:w-[750px] -translate-y-1/2 translate-x-1/2 lg:translate-x-0 rounded-full bg-orange-600/10 blur-[70px] sm:blur-[120px]" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-black" />
+
+        {/* PARALLAX CENTER GLOW SPHERE */}
+        <div
+          style={{
+            transform: `translate3d(${mousePos.x * 1.2}px, ${mousePos.y * 1.2}px, 0)`,
+            transition: "transform 0.2s ease-out",
+          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] lg:w-[700px] lg:h-[700px] rounded-full bg-orange-600/10 blur-[100px] sm:blur-[150px] pointer-events-none -z-10"
+        />
+      </div>
+
+      {/* OVERLAPPING CONSOLE CIRCLES WITH PARALLAX */}
+      <div className="absolute inset-0 z-0 pointer-events-none hidden lg:block overflow-hidden">
+        {/* Outer concentric circles (slower parallax movement) */}
+        <div
+          style={{
+            transform: `translate3d(${mousePos.x * 0.4}px, ${mousePos.y * 0.4}px, 0)`,
+            transition: "transform 0.2s ease-out",
+          }}
+          className="absolute inset-0"
+        >
+          {/* Left Outer Circle */}
+          <div className="absolute top-1/2 -translate-y-1/2 left-[-10%] xl:left-[-5%] w-[650px] h-[650px] rounded-full border border-white/5 shadow-[inset_0_0_40px_rgba(255,255,255,0.01)]" />
+          {/* Right Outer Circle */}
+          <div className="absolute top-1/2 -translate-y-1/2 right-[-10%] xl:right-[-5%] w-[650px] h-[650px] rounded-full border border-white/5 shadow-[inset_0_0_40px_rgba(255,255,255,0.01)]" />
+        </div>
+
+        {/* Inner concentric circles (faster parallax movement) */}
+        <div
+          style={{
+            transform: `translate3d(${mousePos.x * 0.8}px, ${mousePos.y * 0.8}px, 0)`,
+            transition: "transform 0.2s ease-out",
+          }}
+          className="absolute inset-0"
+        >
+          {/* Left Inner Circle */}
+          <div className="absolute top-1/2 -translate-y-1/2 left-[5%] xl:left-[10%] w-[550px] h-[550px] rounded-full border border-white/5 shadow-[inset_0_0_30px_rgba(255,255,255,0.01)]" />
+          {/* Right Inner Circle */}
+          <div className="absolute top-1/2 -translate-y-1/2 right-[5%] xl:right-[10%] w-[550px] h-[550px] rounded-full border border-white/5 shadow-[inset_0_0_30px_rgba(255,255,255,0.01)]" />
+
+          {/* Center Glow Outline Circle */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full border border-orange-500/10 bg-radial-to-b from-orange-500/5 to-transparent shadow-[0_0_60px_rgba(249,115,22,0.02),inset_0_0_50px_rgba(249,115,22,0.02)] backdrop-blur-[1px]" />
+        </div>
       </div>
 
       {/* MASTER CONTAINER */}
       <div className="w-full max-w-7xl relative z-10 flex flex-col gap-12 sm:gap-16 lg:gap-20">
-        {/* UPPER CONTENT GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          {/* LEFT COLUMN: TEXT CONTEXT */}
+
+        {/* UPPER GRID CONTENT */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[55vh] lg:min-h-[60vh]">
+
+          {/* LEFT METRICS COLUMN (Desktop only) */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, x: -35 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="hidden lg:flex flex-col gap-8 col-span-3 items-end pr-8 xl:pr-16 relative"
+          >
+            <Counter value="8X" label="Revenue Growth" align="right" />
+            <motion.div
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
+              className="w-[1px] h-16 bg-linear-to-b from-transparent via-white/10 to-transparent origin-center my-2"
+            />
+            <Counter value="6000%" label="ROAS Delivered" align="right" />
+
+            {/* Left Console Navigation Cue */}
+            <div className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-white/5 flex items-center justify-center bg-black/40 text-white/20 hover:text-white/60 hover:border-white/20 transition-all duration-300 cursor-pointer select-none">
+              <span className="text-xs">←</span>
+            </div>
+          </motion.div>
+
+          {/* CENTER TEXT ZONE */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:col-span-7"
+            className="flex flex-col items-center text-center col-span-12 lg:col-span-6 px-4"
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-neutral-900/60 px-4 py-1.5 text-[10px] sm:text-[11px] font-semibold tracking-wider text-orange-400 uppercase backdrop-blur-md mb-4 shadow-inner">
-              <Sparkles size={12} className="text-orange-400 shrink-0" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-neutral-900/60 px-4 py-1.5 text-[10px] sm:text-[11px] font-semibold tracking-wider text-orange-400 uppercase backdrop-blur-md mb-6 shadow-inner">
+              <Sparkles size={12} className="text-orange-400 shrink-0 animate-pulse" />
               <span>Growth Engineering • Scale Ecosystem</span>
             </div>
 
             {/* Heading */}
-            <h1 className="text-[32px] font-black tracking-tight text-white sm:text-5xl md:text-6xl leading-[1.15] sm:leading-[1.1] mb-5">
+            <h1 className="text-[34px] font-black tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[68px] leading-[1.1] mb-6">
               We Build NxtGen <br />
               <span className="relative inline-block bg-linear-to-r from-orange-400 via-amber-500 to-orange-500 bg-clip-text text-transparent min-h-[1.2em] pb-1">
                 {displayedText}
@@ -195,7 +293,7 @@ export default function Hero() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
               <ButtonCTA
                 href="/contact"
                 text="Build Your Idea"
@@ -212,41 +310,114 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* RIGHT COLUMN: HERO IMAGE REF PANEL */}
+          {/* RIGHT METRICS COLUMN (Desktop only) */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-            className="relative w-full h-[280px] sm:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden border border-white/5 bg-neutral-950/20 backdrop-blur-sm shadow-[0_20px_50px_rgba(0,0,0,0.6)] group lg:col-span-5"
+            initial={{ opacity: 0, x: 35 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="hidden lg:flex flex-col gap-8 col-span-3 items-start pl-8 xl:pl-16 relative"
           >
-            <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/40 z-10" />
-            <Image
-              src={heroimg}
-              alt="Founders ROI Infrastructure Reference"
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 500px"
-              priority
-              className="object-contain p-2 sm:p-4 drop-shadow-[0_10px_30px_rgba(249,115,22,0.12)] transition-transform duration-700 group-hover:scale-[1.015]"
+            <Counter value="125+" label="Campaigns Scaled" align="left" />
+            <motion.div
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
+              className="w-[1px] h-16 bg-linear-to-b from-transparent via-white/10 to-transparent origin-center my-2"
             />
+            <Counter value="3.3 CR" label="Revenue Generated" align="left" />
+
+            {/* Right Console Navigation Cue */}
+            <div className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-white/5 flex items-center justify-center bg-black/40 text-white/20 hover:text-white/60 hover:border-white/20 transition-all duration-300 cursor-pointer select-none">
+              <span className="text-xs">→</span>
+            </div>
           </motion.div>
+
         </div>
 
-        {/* BOTTOM SECTION: METRICS BENTO GRID */}
+        {/* MOBILE & TABLET METRICS ROW (Hidden on Desktop) */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="w-full border-t border-white/10 pt-4 sm:pt-5"
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="lg:hidden w-full border-t border-white/5 pt-6"
         >
-          {/* Changed grid-cols-1 to grid-cols-2 on small mobile devices so it stays structured beautifully */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 w-full">
-            <Counter value="8X" label="Revenue Growth" />
-            <Counter value="6000%" label="ROAS Delivered" />
-            <Counter value="125+" label="Campaigns Scaled" />
-            <Counter value="3.3 CR" label="Revenue Generated" />
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 w-full">
+            <Counter value="8X" label="Revenue Growth" align="center" />
+            <Counter value="6000%" label="ROAS Delivered" align="center" />
+            <Counter value="125+" label="Campaigns Scaled" align="center" />
+            <Counter value="3.3 CR" label="Revenue Generated" align="center" />
           </div>
         </motion.div>
-      </div >
-    </section >
+
+        {/* BOTTOM SECTION: BENTO PILLS ROW */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="w-full flex flex-col md:flex-row items-center justify-center gap-4 border-t border-white/10 pt-8"
+        >
+          {/* Bento Pill 1: High Contrast Orange Card with Index selectors & Auto-Cycling Text */}
+          <div className="group/pill relative flex flex-col sm:flex-row items-center gap-4 bg-linear-to-r from-orange-500 to-amber-500 text-black px-6 py-4 sm:py-3.5 rounded-2xl sm:rounded-full w-full md:w-[480px] min-h-[72px] sm:min-h-[58px] shadow-[0_10px_35px_rgba(249,115,22,0.15)] hover:shadow-[0_15px_40px_rgba(249,115,22,0.25)] transition-all duration-300 cursor-pointer">
+            <div className="flex items-center gap-1.5 shrink-0">
+              <span className={`w-5 h-5 rounded-full border flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${activePillIndex === 0 ? "bg-black text-orange-400 border-black" : "bg-black/5 border-black/10"}`}>1</span>
+              <span className={`w-5 h-5 rounded-full border flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${activePillIndex === 1 ? "bg-black text-orange-400 border-black" : "bg-black/5 border-black/10"}`}>2</span>
+              <span className={`w-5 h-5 rounded-full border flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${activePillIndex === 2 ? "bg-black text-orange-400 border-black" : "bg-black/5 border-black/10"}`}>3</span>
+            </div>
+
+            {/* Smooth text transition container */}
+            <div className="flex-1 overflow-hidden min-h-[36px] sm:min-h-[24px] flex items-center text-center sm:text-left">
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={activePillIndex}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-xs font-black tracking-tight leading-snug w-full"
+                >
+                  {pillMessages[activePillIndex]}
+                </motion.p>
+              </AnimatePresence>
+            </div>
+
+            <span className="text-sm font-bold group-hover/pill:translate-x-1 group-hover/pill:-translate-y-1 transition-transform duration-300 shrink-0">↗</span>
+          </div>
+
+          {/* Bento Pill 2: Facepile Social Proof Card */}
+          <div className="group/facepile relative flex items-center justify-center gap-4 bg-neutral-950/40 backdrop-blur-md border border-white/5 hover:border-white/10 px-6 py-4 sm:py-3.5 rounded-2xl sm:rounded-full w-full md:w-auto min-h-[72px] sm:min-h-[58px] transition-all duration-300 cursor-pointer">
+            {/* Facepile avatars */}
+            <div className="flex -space-x-2.5 shrink-0">
+              <div className="relative w-6 h-6 rounded-full overflow-hidden border-2 border-neutral-900 bg-neutral-800">
+                <Image src="/clientImages/AlienPhotography.png" alt="Client 1" width={24} height={24} className="object-cover h-full w-full" />
+              </div>
+              <div className="relative w-6 h-6 rounded-full overflow-hidden border-2 border-neutral-900 bg-neutral-800">
+                <Image src="/clientImages/CandierPhotography.png" alt="Client 2" width={24} height={24} className="object-cover h-full w-full" />
+              </div>
+              <div className="relative w-6 h-6 rounded-full overflow-hidden border-2 border-neutral-900 bg-neutral-800">
+                <Image src="/clientImages/Carnival.png" alt="Client 3" width={24} height={24} className="object-cover h-full w-full" />
+              </div>
+              <div className="relative w-6 h-6 rounded-full overflow-hidden border-2 border-neutral-900 bg-neutral-800">
+                <Image src="/clientImages/EWS.png" alt="Client 4" width={24} height={24} className="object-cover h-full w-full" />
+              </div>
+            </div>
+            <p className="text-[11px] font-bold tracking-wider text-neutral-300 uppercase shrink-0">
+              Trusted by 100+ Founders
+            </p>
+            <span className="text-xs text-neutral-500 group-hover/facepile:text-white transition-colors duration-300 shrink-0">↗</span>
+          </div>
+
+          {/* Bento Pill 3: Live Pulse Telemetry */}
+          <div className="flex items-center gap-3 bg-neutral-950/40 backdrop-blur-md border border-white/5 px-6 py-4 sm:py-3.5 rounded-2xl sm:rounded-full text-[11px] font-bold tracking-wider text-neutral-400 uppercase w-full md:w-auto min-h-[72px] sm:min-h-[58px] justify-center select-none shrink-0">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span>Growth Systems Online • Ping: {pingVal}ms</span>
+          </div>
+
+        </motion.div>
+
+      </div>
+    </section>
   );
 }
