@@ -132,8 +132,8 @@ function MetricsPanel({ metrics }) {
             <div className="relative z-10 space-y-1">
               <p
                 className={`text-lg sm:text-xl font-black bg-linear-to-r transition-all duration-500 tracking-tight ${isActive
-                    ? "from-orange-400 to-amber-300 bg-clip-text text-transparent scale-[1.03]"
-                    : "from-white to-neutral-400 bg-clip-text text-transparent"
+                  ? "from-orange-400 to-amber-300 bg-clip-text text-transparent scale-[1.03]"
+                  : "from-white to-neutral-400 bg-clip-text text-transparent"
                   }`}
               >
                 <AnimatedCounter value={metric.value} />
@@ -169,7 +169,7 @@ const comprehensiveServices = [
       { value: "₹43.4L+", label: "Pipeline Revenue" },
       { value: "10k+", label: "Leads Generated" }
     ],
-    imgSrc: "/services/capicure.png"
+    imgSrc: "/Services/Capicure.png"
   },
   {
     id: "tourism",
@@ -185,7 +185,7 @@ const comprehensiveServices = [
       { value: "₹43.3L", label: "Closed Revenue" },
       { value: "₹39", label: "Avg Cost / Lead" }
     ],
-    imgSrc: "/services/twinkle.png"
+    imgSrc: "/Services/twinkle.png"
   },
   {
     id: "d2c",
@@ -201,7 +201,7 @@ const comprehensiveServices = [
       { value: "19.6k", label: "Completed Orders" },
       { value: "₹88.2L", label: "Gross Revenue" }
     ],
-    imgSrc: "/services/Hi protiens.png"
+    imgSrc: "/Services/Hiprotiens.png"
   },
   {
     id: "infrastructure",
@@ -217,7 +217,7 @@ const comprehensiveServices = [
       { value: "100%", label: "Market Authority" },
       { value: "Custom", label: "Design Systems" }
     ],
-    imgSrc: "/services/webxode.png"
+    imgSrc: "/Services/webxode.png"
   }
 ];
 
