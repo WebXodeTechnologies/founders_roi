@@ -29,7 +29,7 @@ const row2 = [
   { name: "Triberry Studios", logo: "/clientImages/triberrystudioslogo.png" },
   { name: "Kamarajar College of Nursing", logo: "/clientImages/KSAnursing.jpeg" },
   { name: "Kamarajar College of Pharmacy", logo: "/clientImages/KSA.jpeg" },
-  { name: "Webxode Technologies", logo: "/clientImages/webxodelogocropped-removebg-preview.png" },
+  { name: "Webxode Technologies", logo: "/clientImages/webxodelogocropped.png" },
   { name: "Zero One Photography", logo: "/clientImages/ZeroOnePhotography.jpeg" },
   { name: "AK Photography", logo: "/clientImages/AKPhotography.png" },
   { name: "Aj Uday Clickography", logo: "/clientImages/AJClickography.png" },
