@@ -4,26 +4,68 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter,
+  FaReddit,
+  FaMedium,
+  FaPinterest,
+  FaYoutube,
+  FaFacebook
+} from "react-icons/fa";
 import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   const socialIcons = [
-    { 
-      Icon: FaInstagram, 
-      href: "https://www.instagram.com/foundersroi.in?igsh=MXZiM3RlYWlmdnR2MA%3D%3D&utm_source=qr", 
-      label: "Instagram Link" 
+    {
+      Icon: FaFacebook,
+      href: "https://www.facebook.com/share/1bgvvMz6My/?mibextid=wwXIfr",
+      label: "Facebook Page",
+      hoverClass: "hover:bg-[#1877F2] hover:text-white hover:border-transparent hover:shadow-[#1877F2]/20"
     },
-    { 
-      Icon: FaLinkedin, 
-      href: "https://www.linkedin.com/in/foundersroidotin?utm_source=share_via&utm_content=profile&utm_medium=member_ios", 
-      label: "LinkedIn Profile" 
+    {
+      Icon: FaInstagram,
+      href: "https://www.instagram.com/foundersroi/",
+      label: "Instagram Link",
+      hoverClass: "hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 hover:text-white hover:border-transparent hover:shadow-purple-500/20"
     },
-    { 
-      Icon: FaTwitter, 
-      href: "#", 
-      label: "Twitter Feed" 
-    }
+    {
+      Icon: FaLinkedin,
+      href: "https://www.linkedin.com/in/foundersroidotin/",
+      label: "LinkedIn Profile",
+      hoverClass: "hover:bg-[#0A66C2] hover:text-white hover:border-transparent hover:shadow-[#0A66C2]/20"
+    },
+    {
+      Icon: FaTwitter,
+      href: "https://x.com/FoundersROI",
+      label: "Twitter Feed",
+      hoverClass: "hover:bg-[#1DA1F2] hover:text-white hover:border-transparent hover:shadow-[#1DA1F2]/20"
+    },
+    {
+      Icon: FaReddit,
+      href: "https://www.reddit.com/user/Lonely-Practice-9104/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button",
+      label: "Reddit Community",
+      hoverClass: "hover:bg-[#FF4500] hover:text-white hover:border-transparent hover:shadow-[#FF4500]/20"
+    },
+    {
+      Icon: FaMedium,
+      href: "https://medium.com/@foundersroi.in",
+      label: "Medium Blog",
+      hoverClass: "hover:bg-white hover:text-black hover:border-transparent hover:shadow-white/10"
+    },
+    {
+      Icon: FaPinterest,
+      href: "https://pin.it/6dBRUMqWX",
+      label: "Pinterest Board",
+      hoverClass: "hover:bg-[#E60023] hover:text-white hover:border-transparent hover:shadow-[#E60023]/20"
+    },
+    {
+      Icon: FaYoutube,
+      href: "https://youtube.com/@foundersroi.in2026?si=I92sVa72b5-MyAxB",
+      label: "YouTube Channel",
+      hoverClass: "hover:bg-[#FF0000] hover:text-white hover:border-transparent hover:shadow-[#FF0000]/20"
+    },
   ];
 
   return (
@@ -123,7 +165,7 @@ export default function Footer() {
             </div>
 
             {/* HIGH-END CAPSULE SOCIAL ARRAY MAP */}
-            <div className="flex gap-2.5 pt-2">
+            <div className="grid grid-cols-4 gap-2.5 w-fit pt-2">
               {socialIcons.map((social, i) => (
                 <motion.a
                   key={i}
@@ -131,11 +173,11 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2.5 bg-neutral-950/80 border border-neutral-900 rounded-xl text-neutral-400 hover:text-black hover:bg-linear-to-r hover:from-orange-400 hover:to-amber-500 hover:border-transparent transition-all duration-300 shadow-lg cursor-pointer"
+                  className={`p-2.5 bg-neutral-950/80 border border-neutral-900 rounded-xl text-neutral-400 transition-all duration-300 shadow-lg cursor-pointer ${social.hoverClass}`}
                 >
-                  <social.Icon size={14} />
+                  <social.Icon size={16} />
                 </motion.a>
               ))}
             </div>
