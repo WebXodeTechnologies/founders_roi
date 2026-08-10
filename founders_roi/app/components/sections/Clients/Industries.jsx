@@ -6,6 +6,7 @@ import Image from "next/image";
 import {
   Camera, CalendarDays, ShoppingBag, Plane, Building2, GraduationCap, ArrowRight, Sparkles
 } from "lucide-react";
+import Link from "next/link";
 
 const industries = [
   {
@@ -69,8 +70,8 @@ export default function Industries() {
     <section className="w-full bg-bg-primary text-white py-32 px-4 sm:px-8 lg:px-16 relative overflow-hidden select-none border-t border-neutral-900/60">
 
       {/* Ambient background glows */}
-      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-orange-500/5 blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-1/3 right-1/4 w-[550px] h-[550px] bg-purple-500/2 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-125 h-125 bg-orange-500/5 blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/4 w-137.5 h-137.5 bg-purple-500/2 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="max-w-3xl mb-24 space-y-4 text-center sm:text-left">
@@ -106,7 +107,7 @@ function IndustryCard({ item, index }) {
       viewport={{ once: true, margin: "-60px" }}
       transition={{ type: "spring", stiffness: 80, damping: 15, delay: index * 0.05 }}
       whileHover={{ y: -8 }}
-      className={`group relative rounded-3xl p-px bg-transparent transition-all duration-500 cursor-pointer overflow-hidden aspect-4/5 sm:aspect-auto sm:h-[380px] lg:h-[400px] flex flex-col justify-between hover:shadow-2xl ${item.glow}`}
+      className={`group relative rounded-3xl p-px bg-transparent transition-all duration-500 cursor-pointer overflow-hidden aspect-4/5 sm:aspect-auto sm:h-95 lg:h-100 flex flex-col justify-between hover:shadow-2xl ${item.glow}`}
     >
       {/* 🌟 ROLLING CONIC NEON BORDER LIGHT ENGINE (DYNAMIC COLORS PER CARD) 🌟 */}
       <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none z-0">
@@ -143,8 +144,8 @@ function IndustryCard({ item, index }) {
           </h3>
         </div>
 
-        {/* Bottom block */}
-        <div className="w-full flex items-center justify-between border-t border-neutral-800/60 pt-6 mt-8">
+        {/* Bottom block wrapped in a Next.js Link */}
+        <Link href="/case-study" className="w-full flex items-center justify-between border-t border-neutral-800/60 pt-6 mt-8 cursor-pointer">
           <div className="flex flex-col">
             <span className="text-[9px] uppercase tracking-widest text-neutral-500 font-extrabold mb-0.5">Focus Area</span>
             <span className="text-xs font-semibold text-neutral-300 group-hover:text-white transition-colors duration-300">{item.focus}</span>
@@ -152,7 +153,7 @@ function IndustryCard({ item, index }) {
           <div className="p-2.5 rounded-full border border-neutral-800 bg-neutral-900/60 text-neutral-400 group-hover:border-orange-500 group-hover:text-white group-hover:bg-orange-500 transition-all duration-300 shadow-md">
             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
           </div>
-        </div>
+        </Link>
 
       </div>
 

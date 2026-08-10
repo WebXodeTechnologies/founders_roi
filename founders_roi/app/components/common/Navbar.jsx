@@ -19,6 +19,7 @@ export default function Navbar() {
     { name: "Services", path: "/services" },
     { name: "Process", path: "/process" },
     { name: "Clients", path: "/clients" },
+    { name: "Case Study", path: "/case-study" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -49,20 +50,18 @@ export default function Navbar() {
 
   return (
     <>
-      <header 
-        className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 px-4 sm:px-6 lg:px-8 ${
-          scrolled ? "py-2.5" : "py-4"
-        } ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+      <header
+        className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 px-4 sm:px-6 lg:px-8 ${scrolled ? "py-2.5" : "py-4"
+          } ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
-        <nav 
-          className={`mx-auto flex max-w-7xl items-center justify-between rounded-full px-4 sm:px-6 transition-all duration-300 border backdrop-blur-md ${
-            scrolled 
-              ? "h-14 max-w-5xl bg-zinc-950/80 border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)]" 
-              : "h-16 bg-zinc-950/40 border-white/5 shadow-none"
-          }`}
+        <nav
+          className={`mx-auto flex max-w-7xl items-center justify-between rounded-full px-4 sm:px-6 transition-all duration-300 border backdrop-blur-md ${scrolled
+            ? "h-14 max-w-5xl bg-zinc-950/80 border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
+            : "h-16 bg-zinc-950/40 border-white/5 shadow-none"
+            }`}
         >
           <div className="absolute inset-0 rounded-full border border-white/5 pointer-events-none" />
-          
+
           {/* BRAND LOGO AREA */}
           <Link href="/" className="flex items-center gap-2.5 group relative z-10">
             <div className="relative w-8 h-8 sm:w-9 sm:h-9 transition-transform duration-300 group-hover:scale-105">
@@ -96,9 +95,8 @@ export default function Navbar() {
                   href={item.path}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className={`relative rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-medium tracking-wide transition-colors duration-200 ${
-                    isActive ? "text-white" : "text-zinc-400 hover:text-white"
-                  }`}
+                  className={`relative rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-medium tracking-wide transition-colors duration-200 ${isActive ? "text-white" : "text-zinc-400 hover:text-white"
+                    }`}
                 >
                   {hoveredIndex === index && (
                     <motion.span
@@ -171,8 +169,8 @@ export default function Navbar() {
                   </span>
                 </div>
 
-                <button 
-                  onClick={() => setIsOpen(false)} 
+                <button
+                  onClick={() => setIsOpen(false)}
                   className="relative z-50 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white cursor-pointer hover:bg-white/10 transition-colors"
                 >
                   <X size={18} />
