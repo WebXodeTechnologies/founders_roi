@@ -68,7 +68,7 @@ export default function CaseStudyPage() {
 
             {/* Filtered Case Studies List */}
             {filteredStudies.length === 0 ? (
-                <div className="py-24 text-center font-mono text-sm text-text-muted">
+                <div className="py-60 text-center font-mono text-4xl text-text-muted">
                     No case studies found for this category yet.
                 </div>
             ) : (
