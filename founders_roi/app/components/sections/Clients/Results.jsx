@@ -14,7 +14,7 @@ export default function Results() {
     <section className="w-full bg-bg-primary text-white py-32 px-4 sm:px-8 lg:px-16 relative overflow-hidden border-t border-neutral-900/60">
 
       {/* AMBIENT MESH GLOW */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-orange-500/4 blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-250 h-150 bg-orange-500/4 blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-24">
@@ -87,7 +87,7 @@ function MetricCard({ stat, index }) {
           {stat.label}
         </h3>
 
-        <p className="text-[11px] text-neutral-600 font-medium tracking-wide uppercase leading-relaxed max-w-[160px]">
+        <p className="text-[11px] text-neutral-600 font-medium tracking-wide uppercase leading-relaxed max-w-40">
           {stat.desc}
         </p>
       </div>

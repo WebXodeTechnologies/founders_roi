@@ -9,10 +9,9 @@
   --color-border-custom: #1f1f1f;
 
   /* Accent & Brand Colors */
-  --color-accent: #BFF747; /* The Green growth pop */
-  --color-primary-saas: #7c3aed; /* SaaS Purple */
-  --color-secondary-saas: #06b6d4; /* SaaS Cyan */
-  
+  --color-accent: #ff4d1c; /* Primary Founders ROI Orange */
+  --color-accent-coral: #e8536e; /* Secondary Accent / Highlights */
+
   /* Gradients */
   --background-image-gradient-tech: linear-gradient(135deg, #7c3aed, #06b6d4);
 }
@@ -29,18 +28,23 @@ body {
   transition: background-color 0.3s ease;
 }
 
-h1, h2, h3, h4, h5, h6 { 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-sora), sans-serif;
   color: var(--color-text-main);
 }
 
 /* Custom Components & Utilities using Tailwind v4 @apply structures */
 @utility btn-primary {
-  @apply px-6 py-3 rounded-xl bg-(--color-accent) text-black font-bold hover:brightness-110 transition-all;
+  @apply px-6 py-3 rounded-xl bg-accent text-black font-bold hover:brightness-110 transition-all;
 }
 
 @utility card {
-  @apply p-8 rounded-2xl border border-(--color-border-custom) bg-(--color-bg-card) hover:border-(--color-primary-saas) transition-all;
+  @apply p-8 rounded-2xl border border-border-custom bg-bg-card hover:border-(--color-primary-saas) transition-all;
 }
 
 @utility gradient-text {
@@ -63,5 +67,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mask-fade {
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 }

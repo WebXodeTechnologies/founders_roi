@@ -44,7 +44,7 @@ export default function ClientHero() {
     <section className="w-full bg-bg-primary text-white pt-36 pb-24 px-4 sm:px-8 lg:px-16 relative overflow-hidden select-none border-b border-neutral-900/60 max-w-7xl mx-auto">
 
       {/* BACKGROUND EFFECTS */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-linear-to-b from-orange-500/5 via-transparent to-transparent blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-250 h-100 bg-linear-to-b from-orange-500/5 via-transparent to-transparent blur-[140px] pointer-events-none" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#141414_1px,transparent_1px),linear-gradient(to_bottom,#141414_1px,transparent_1px)] bg-size-[4.5rem_4.5rem] opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto text-center relative z-10 flex flex-col items-center space-y-8 mb-24">
