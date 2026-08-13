@@ -1,8 +1,21 @@
+import { CalendarDays, Plane, ShoppingBag, GraduationCap } from "lucide-react";
+
+export const categoriesConfig = [
+  {
+    key: "wedding-events",
+    label: "1. Wedding & Event Management",
+    icon: CalendarDays,
+  },
+  { key: "travel-hospitality", label: "2. Travel & Hospitality", icon: Plane },
+  { key: "d2c-ecommerce", label: "3. D2C & E-commerce", icon: ShoppingBag },
+  { key: "education", label: "4. Education", icon: GraduationCap },
+];
+
 export const caseStudiesData = [
-  // --- EXISTING WEDDING & EVENTS DATA (Untouched) ---
+  // --- 1. WEDDING & EVENT MANAGEMENT ---
   {
     id: "01",
-    categoryKey: "wedding",
+    categoryKey: "wedding-events",
     cityOrRegion: "Madurai",
     industry: "Wedding & Events",
     headline: "How ₹85,570 in ad spend became",
@@ -54,7 +67,7 @@ export const caseStudiesData = [
   },
   {
     id: "02",
-    categoryKey: "wedding",
+    categoryKey: "wedding-events",
     cityOrRegion: "Chennai",
     industry: "Wedding & Events",
     headline: "How ₹75,929 in ad spend became",
@@ -72,7 +85,7 @@ export const caseStudiesData = [
       "A premium wedding photography brand operating in a highly competitive market where attention is easy to buy — but actual bookings are harder to win.",
     problemTitle: "Interest without a path to revenue",
     problemDescription:
-      "The challenge wasn't visibility. It was turning digital interest into real wedding bookings and meaningful revenue. The brand needed a system that could connect ad spend → qualified demand → sales.",
+      "The challenge wasn't visibility. It was turning digital interest into real wedding bookings and meaningful revenue.",
     solutionTitle: "A conversion-focused acquisition system",
     pillars: [
       { n: "01", title: "High-intent audience targeting", description: "" },
@@ -95,13 +108,13 @@ export const caseStudiesData = [
   },
   {
     id: "03",
-    categoryKey: "wedding",
+    categoryKey: "wedding-events",
     cityOrRegion: "Coimbatore",
     industry: "Wedding & Events",
     headline: "How ₹1.41L in ad spend unlocked",
     accentText: "₹60L+ in wedding booking potential.",
     subheadline:
-      "A Coimbatore-based wedding brand was struggling to attract the right customers through Meta — not because there was no demand, but because the campaigns weren't consistently bringing in leads who could afford their packages.",
+      "A Coimbatore-based wedding brand was struggling to attract the right customers through Meta — not because there was no demand, but because campaigns weren't bringing budget-qualified leads.",
     metrics: [
       { num: "₹1.41L", lbl: "Ad Spend" },
       { num: "₹60L+", lbl: "Booking Potential" },
@@ -109,191 +122,262 @@ export const caseStudiesData = [
     ],
     clientName: "Coimbatore-based Wedding Brand",
     clientDescription:
-      "A growing wedding brand competing for premium bookings in a highly competitive market.",
+      "A growing wedding brand competing for premium bookings.",
     problemTitle: "Meta was bringing leads. Not the right leads.",
     problemDescription:
-      "The biggest challenge wasn't generating enquiries — it was generating budget-qualified enquiries. The brand was spending on Meta, but a significant portion of the leads coming in didn't have the budget required for their wedding packages.",
+      "A significant portion of incoming leads didn't have the budget required for high-tier packages.",
     solutionTitle: "Rebuilt the acquisition system around buyer quality",
     pillars: [
       {
         n: "01",
         title: "Audience Strategy",
-        description:
-          "identified and targeted audiences with stronger intent and purchasing ability.",
+        description: "identified and targeted audiences with stronger intent.",
       },
       {
         n: "02",
         title: "Creative Strategy",
-        description:
-          "repositioned the brand and creatives to communicate value before the enquiry.",
+        description: "repositioned creatives to communicate value upfront.",
       },
       {
         n: "03",
         title: "Campaign Strategy",
-        description:
-          "restructured Meta campaigns to move beyond simply generating lead volume.",
+        description: "restructured Meta campaigns beyond lead volume.",
       },
       {
         n: "04",
         title: "Lead Quality",
-        description:
-          "focused the acquisition system on enquiries with genuine budget potential.",
+        description: "focused on enquiries with genuine budget potential.",
       },
       {
         n: "05",
         title: "Revenue-led Optimisation",
-        description:
-          "continuously optimised campaigns around business outcomes, not just CPL or lead count.",
+        description: "optimised around business outcomes, not CPL.",
       },
     ],
     conclusionNote:
-      "₹1.41L in ad spend generated ₹60L+ in potential wedding bookings, with ₹30L+ in wedding revenue already closed.",
+      "₹1.41L in ad spend generated ₹60L+ in potential bookings, with ₹30L+ closed.",
     takeawayTitle: "The problem wasn't Meta. It was the system behind it.",
     takeawaySub:
-      "When the acquisition system is built to attract the right buyer, marketing stops being an expense that generates enquiries — and starts becoming a predictable engine for revenue.",
+      "When built to attract the right buyer, marketing becomes a predictable engine for revenue.",
   },
   {
     id: "04",
-    categoryKey: "wedding",
+    categoryKey: "wedding-events",
     cityOrRegion: "Salem, Erode & Coimbatore",
     industry: "Wedding & Events",
     headline: "How we transformed inconsistent inbound into a",
     accentText: "₹25L/month revenue engine.",
     subheadline:
-      "A multi-location photography brand operating across Salem, Erode and Coimbatore was generating inbound enquiries — but not enough of them were converting into genuine business opportunities.",
+      "A multi-location photography brand was generating inbound enquiries, but low conversion rates stalled growth.",
     metrics: [
       { num: "3", lbl: "Locations" },
       { num: "20%", lbl: "Qualified Leads Before" },
       { num: "40-50%", lbl: "Qualified Wedding Leads" },
-      { num: "60-70%", lbl: "Qualified Baby Leads" },
       { num: "₹25L", lbl: "Monthly Revenue", isRoas: true },
     ],
     clientName: "Multi-location Wedding & Baby Photography Brand",
-    clientDescription:
-      "Operating across Salem, Erode and Coimbatore, serving customers across wedding and baby photography segments.",
+    clientDescription: "Operating across Salem, Erode, and Coimbatore.",
     problemTitle: "Plenty of enquiries. Not enough real opportunities.",
     problemDescription:
-      "The brand's biggest challenge wasn't simply getting leads — it was inconsistent inbound enquiry volume and poor lead quality. Only around 20% of total inbound enquiries were genuinely qualified.",
+      "Only around 20% of total inbound enquiries were genuinely qualified.",
     solutionTitle:
       "Built the acquisition system around lead quality and revenue",
     pillars: [
       {
         n: "01",
         title: "Demand Generation",
-        description:
-          "created a more consistent flow of inbound enquiries across multiple locations.",
+        description: "consistent inbound flow across locations.",
       },
       {
         n: "02",
         title: "Audience Strategy",
-        description:
-          "refined targeting to reach customers with stronger purchase intent.",
+        description: "refined targeting for higher purchase intent.",
       },
       {
         n: "03",
         title: "Creative Strategy",
-        description:
-          "developed communication designed to attract the right customer.",
+        description: "communication designed to attract ideal customers.",
       },
       {
         n: "04",
         title: "Lead Quality Optimisation",
-        description:
-          "continuously analysed enquiry quality and optimised campaigns.",
+        description: "analysed and optimised for conversion.",
       },
       {
         n: "05",
-        title: "Location & Segment Strategy",
-        description:
-          "built a more focused approach across regions and segments.",
+        title: "Location Strategy",
+        description: "focused multi-regional approach.",
       },
     ],
     conclusionNote:
-      "Today, the brand is generating approximately ₹25L in monthly revenue from a significantly stronger pipeline.",
+      "Today, the brand generates approximately ₹25L in monthly revenue.",
     takeawayTitle: "More leads don't always mean more business.",
     takeawaySub:
-      "The real growth came from improving who was enquiring, how consistently they were enquiring, and how many of those enquiries had genuine buying potential.",
+      "Growth came from improving who was enquiring and their buying potential.",
   },
 
-  // --- NEW CATEGORIES (D2C, Travel, Hospitality, Events) ---
+  // --- 2. TRAVEL & HOSPITALITY ---
   {
     id: "05",
-    categoryKey: "d2c",
-    cityOrRegion: "Pan-India",
-    industry: "D2C Consumer Brands",
-    headline: "How ₹2.5L in ad spend scaled",
-    accentText: "₹1.1Cr in D2C e-commerce revenue.",
+    categoryKey: "travel-hospitality",
+    cityOrRegion: "Salem",
+    industry: "Travel & Hospitality",
+    headline: "How ₹96,738 in ad spend became",
+    accentText: "₹43,41,175 in revenue generated.",
     subheadline:
-      "A fast-growing direct-to-consumer lifestyle brand struggling with volatile customer acquisition costs (CAC) on Meta and Google Shopping.",
+      "Twinkle Holidays — a Salem-based travel brand competing in a price-sensitive market out of a tier-2 city.",
     metrics: [
-      { num: "₹2.5L", lbl: "Ad Spend" },
-      { num: "₹1.1Cr", lbl: "E-com Revenue" },
-      { num: "4.4X", lbl: "Blended ROAS", isRoas: true },
+      { num: "₹96,738", lbl: "Ad Spend" },
+      { num: "₹43,41,175", lbl: "Revenue Generated" },
+      { num: "44:1", lbl: "ROAS · 4,488%", isRoas: true },
     ],
-    clientName: "Direct-to-Consumer Lifestyle Brand",
+    clientName: "Twinkle Holidays",
     clientDescription:
-      "Scaling e-commerce sales against high category competition.",
-    problemTitle: "High CAC and abandoned carts",
+      "A travel and holiday-packages brand based in Salem, Tamil Nadu.",
+    problemTitle:
+      "Leads were coming in — at the wrong cost, with the wrong return",
     problemDescription:
-      "Traffic was coming in, but checkout drop-offs and poor retargeting made scaling unprofitable.",
-    solutionTitle: "Full-funnel D2C revenue framework",
+      "A 4:1 ROAS meant marketing was working linearly, not compounding.",
+    solutionTitle: "Rebuilt the full funnel — creative to sales closure",
     pillars: [
       {
         n: "01",
-        title: "Creative Engine",
-        description:
-          "High-converting UGC video hooks and product angle testing.",
+        title: "Creative & Campaign Strategy",
+        description: "brought CPL down from ₹67 to ₹8.80.",
       },
       {
         n: "02",
-        title: "Retention Funnel",
-        description:
-          "Automated email workflows and dynamic catalog retargeting.",
+        title: "Lead Generation System",
+        description: "scalable lead-gen engine.",
+      },
+      {
+        n: "03",
+        title: "Dedicated Sales Team",
+        description: "run specifically for Twinkle Holidays.",
+      },
+      {
+        n: "04",
+        title: "Sales System & Closure",
+        description: "connected leads to booking closures.",
+      },
+      {
+        n: "05",
+        title: "Revenue-led Optimisation",
+        description: "scaled spend against proven conversion.",
       },
     ],
-    conclusionNote:
-      "Achieved profitable scale across channels while stabilizing unit acquisition costs.",
+    conclusionNote: "Ad spend was cut by 86.5% while revenue rose 241.9%.",
     takeawayTitle:
-      "D2C growth isn't about more spend. It's about creative efficiency.",
+      "More leads at a lower cost isn't the win by itself. Closed bookings are.",
+    takeawaySub:
+      "Salem isn't a metro market — and the numbers didn't need it to be.",
   },
+
+  // --- 3. D2C & E-COMMERCE ---
   {
     id: "06",
-    categoryKey: "travel",
-    cityOrRegion: "South India",
-    industry: "Travel & Holidays",
-    headline: "How strategic destination targeting unlocked",
-    accentText: "₹45L+ in holiday packages.",
+    categoryKey: "d2c-ecommerce",
+    cityOrRegion: "Chennai",
+    industry: "D2C & E-commerce",
+    headline: "How ₹94,920 in ad spend became",
+    accentText: "₹88.2L in revenue generated.",
     subheadline:
-      "A premier travel and tour operator struggling with low-intent chat inquiries that never converted into international bookings.",
+      "A Chennai-based D2C fresh-meat and protein delivery app scaled orders exponentially.",
     metrics: [
-      { num: "₹90,000", lbl: "Ad Spend" },
-      { num: "₹45.2L", lbl: "Package Bookings" },
-      { num: "50.2X", lbl: "Return on Ad Spend", isRoas: true },
+      { num: "₹94,920", lbl: "Ad Spend" },
+      { num: "₹88.2L", lbl: "Revenue Generated" },
+      { num: "9.27:1", lbl: "ROAS · 927%", isRoas: true },
     ],
-    clientName: "Regional Tour & Holiday Operator",
+    clientName: "Chennai-based D2C Consumer Brand",
     clientDescription:
-      "High-ticket custom vacation and honeymoon package provider.",
-    problemTitle: "Inquiries without buying intent",
+      "Fresh meat and protein delivery app (Chicken, Mutton, Seafood, Eggs).",
+    problemTitle: "No clear roadmap — inconsistent order volume",
     problemDescription:
-      "Sales teams were overwhelmed with low-budget inquiries asking for rates without financial qualification.",
-    solutionTitle: "Experience-led qualification funnel",
+      "It took roughly six months to reach 1,500 downloads under their legacy pace.",
+    solutionTitle: "Built a paid + organic system tied to order volume",
     pillars: [
       {
         n: "01",
-        title: "Visual Storytelling",
-        description:
-          "Cinematic destination video campaigns targeting premium demographics.",
+        title: "Performance Marketing System",
+        description: "connected ad spend directly to completed orders.",
       },
       {
         n: "02",
-        title: "Budget Filtering",
-        description:
-          "Friction-based pre-qualification forms before sales calls.",
+        title: "Organic Social Branding",
+        description: "built category trust alongside ads.",
+      },
+      {
+        n: "03",
+        title: "Month-on-Month Tracking",
+        description: "trackable growth roadmap.",
+      },
+      {
+        n: "04",
+        title: "Install-to-Order Focus",
+        description: "optimised toward completed transactions.",
+      },
+      {
+        n: "05",
+        title: "Revenue-led Scaling",
+        description: "disciplined spend scaling.",
       },
     ],
     conclusionNote:
-      "Significantly shortened sales cycle lengths for international vacation packages.",
+      "6,780 downloads drove 19,600 completed orders and ₹88.2L in revenue.",
+    takeawayTitle: "Speed compounds. So does revenue.",
+    takeawaySub:
+      "1,500 downloads took six months before. It took one month after.",
+  },
+
+  // --- 4. EDUCATION ---
+  {
+    id: "07",
+    categoryKey: "education",
+    cityOrRegion: "Tamil Nadu",
+    industry: "Education",
+    headline: "From no digital presence to a",
+    accentText: "complete digital ecosystem.",
+    subheadline:
+      "KSA Groups of Institutions moved from online obscurity to a fully structured multi-college identity.",
+    metrics: [
+      { num: "4", lbl: "Colleges Connected" },
+      { num: "1", lbl: "Master KSA Group Website" },
+      { num: "100%", lbl: "Digital Transformation" },
+    ],
+    clientName:
+      "KSA Groups of Institutions (Kamarajar College of Institutions)",
+    clientDescription:
+      "Spanning Nursing, Pharmacy, Polytechnic, and Maritime education.",
+    problemTitle: "No proper digital presence, across the entire group",
+    problemDescription:
+      "No central website or individual college sites for prospective students and parents.",
+    solutionTitle: "A complete, connected digital ecosystem",
+    pillars: [
+      {
+        n: "01",
+        title: "Master KSA Group Hub",
+        description: "unified brand identity.",
+      },
+      {
+        n: "02",
+        title: "Dedicated Institution Sites",
+        description: "functional sites for each college.",
+      },
+      {
+        n: "03",
+        title: "Information Architecture",
+        description: "clear access to courses and admissions.",
+      },
+      {
+        n: "04",
+        title: "Ecosystem Scalability",
+        description: "built to grow with future expansion.",
+      },
+    ],
+    conclusionNote:
+      "A professional online identity connecting all four institutions into one ecosystem.",
     takeawayTitle:
-      "Experience design starts before the trip—right at the ad creative.",
+      "We didn't just build four websites. We built a connected digital ecosystem.",
+    takeawaySub: "Four institutions. One connected identity.",
   },
 ];
