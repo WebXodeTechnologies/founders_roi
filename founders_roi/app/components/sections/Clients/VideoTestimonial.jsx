@@ -19,7 +19,7 @@ const testimonialsData = [
     name: "Santhosh",
     role: "Founder & CEO",
     company: "Capicture Studios",
-    metric: "3.8x ROAS Generated",
+    metric: "50.67x ROAS Generated",
     quote:
       "Founders ROI completely restructured our performance marketing and Shopify infrastructure. Our monthly recurring revenue scaled exponentially within 90 days.",
     videoSrc: "/testimonial/CapictureTestimonial.webm",
@@ -29,7 +29,7 @@ const testimonialsData = [
     name: "Surendharan",
     role: "Founder & Managing Director",
     company: "Twinkle Holidays",
-    metric: "64% Reduction in CPL",
+    metric: "44.88x ROAS Generated ",
     quote:
       "Their precision targeting and automated WhatsApp qualification funnels eliminated low-quality leads entirely. Our sales team closes high-ticket clients effortlessly.",
     videoSrc: "/testimonial/IMG_2097.webm",
