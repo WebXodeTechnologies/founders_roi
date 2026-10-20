@@ -12,7 +12,10 @@ const clients = [
   { name: "EWS Logo", logo: "/clientImages/EWS logo.png" },
   { name: "Fresh Frames", logo: "/clientImages/freshframes.in.jpg" },
   { name: "Leo Photography", logo: "/clientImages/LeoPhotogrpahy.jpg" },
-  { name: "Hi Proteins", logo: "/clientimagebgremoved/Hiprotein-removebg-preview.png" },
+  {
+    name: "Hi Proteins",
+    logo: "/clientimagebgremoved/Hiprotein-removebg-preview.png",
+  },
   { name: "House of Memories", logo: "/clientImages/HouseofMemories.jpeg" },
   { name: "L & H", logo: "/clientimagebgremoved/L_H-removebg-preview.png" },
   { name: "Lexa Holidays", logo: "/clientImages/Lexa Holidays.jpeg" },
@@ -20,24 +23,39 @@ const clients = [
   { name: "Splash Eventia", logo: "/clientImages/SplashEventia.jpg" },
   { name: "TH", logo: "/clientImages/TH.png" },
   { name: "Triberry Studios", logo: "/clientImages/triberrystudioslogo.png" },
-  { name: "Kamarajar College of Nursing", logo: "/clientImages/KSAnursing.jpeg" },
+  {
+    name: "Kamarajar College of Nursing",
+    logo: "/clientImages/KSAnursing.jpeg",
+  },
   { name: "Kamarajar College of Pharmacy", logo: "/clientImages/KSA.jpeg" },
-  { name: "Webxode Technologies", logo: "/clientImages/webxodelogocropped.png" },
+  {
+    name: "Webxode Technologies",
+    logo: "/clientImages/webxodelogocropped.png",
+  },
   { name: "MagicLens Studio", logo: "/clientImages/MagicLens.jpg" },
   { name: "Infocus The Studio", logo: "/clientImages/Infocus.jpg" },
-  { name: "Zero One Photography", logo: "/clientImages/ZeroOnePhotography.jpeg" },
+  {
+    name: "Zero One Photography",
+    logo: "/clientImages/ZeroOnePhotography.jpeg",
+  },
   { name: "AK Photography", logo: "/clientImages/AKPhotography.png" },
   { name: "Aj Uday Clickography", logo: "/clientImages/AJClickography.png" },
   { name: "KSA group of Instituions", logo: "/clientImages/ksafnal.PNG" },
-  { name: "KSA Maritime college", logo: "/clientImages/PKimsefnal.PNG" }
+  { name: "KSA Maritime college", logo: "/clientImages/PKimsefnal.PNG" },
+  { name: "House of Tales", logo: "/clientImages/Houseoftales.PNG" },
+  {
+    name: "OneTime Photography",
+    logo: "/clientImages/OnetimePhotography.jpg",
+  },
+  { name: "PromoBox", logo: "/clientImages/promobox1.jpeg" },
 ];
 
 const ClientMarquee = () => {
   return (
     <section className="w-full bg-black py-16 overflow-hidden relative">
       {/* Background Ambient Glows */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-orange-600/4 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-orange-950/3 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-125 h-125 bg-orange-600/4 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-125 h-125 bg-orange-950/3 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="text-center mb-10 relative z-10">
         <h1 className="text-neutral-500 font-bold uppercase tracking-[0.25em] text-md text-pretty">

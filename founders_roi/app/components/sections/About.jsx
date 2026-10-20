@@ -2,12 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  Megaphone,
-  Cpu,
-  Network,
-  Target,
-} from "lucide-react";
+import { Megaphone, Cpu, Network, Target } from "lucide-react";
 import ButtonCTA from "../ui/ButtonCTA";
 
 export default function About() {
@@ -32,8 +27,8 @@ export default function About() {
   return (
     <section className="relative w-full overflow-hidden py-20 sm:py-24 px-4 sm:px-6 lg:px-8">
       {/* ================= PURE GLOW MESH LAYER ================= */}
-      <div className="absolute top-0 left-[-10%] z-0 h-[400px] w-[400px] rounded-full bg-orange-600/8 blur-[150px]" />
-      <div className="absolute bottom-0 right-[-10%] z-0 h-[400px] w-[400px] rounded-full bg-orange-600/8 blur-[150px]" />
+      <div className="absolute top-0 left-[-10%] z-0 h-100 w-100 rounded-full bg-orange-600/8 blur-[150px]" />
+      <div className="absolute bottom-0 right-[-10%] z-0 h-100 w-100 rounded-full bg-orange-600/8 blur-[150px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] items-center">
         {/* ================= LEFT SIDE: PREMIUM IMMERSIVE MEDIA FRAME ================= */}
@@ -45,7 +40,7 @@ export default function About() {
           className="relative group w-full max-w-xl mx-auto lg:mx-0"
         >
           {/* Back Glowing Shadow Ring */}
-          <div className="absolute -inset-2 rounded-[32px] bg-linear-to-tr from-orange-500/10 to-transparent opacity-60 blur-2xl transition-all duration-500 group-hover:opacity-80" />
+          <div className="absolute -inset-2 rounded-4xl bg-linear-to-tr from-orange-500/10 to-transparent opacity-60 blur-2xl transition-all duration-500 group-hover:opacity-80" />
 
           {/* Bezel Frame */}
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black p-2 shadow-[0_24px_60px_rgba(0,0,0,0.8)]">

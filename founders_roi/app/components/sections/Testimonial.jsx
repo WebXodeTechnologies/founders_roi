@@ -41,6 +41,24 @@ const testimonials = [
     feedback:
       "Highly recommended for any brand looking to scale with performance marketing.",
   },
+  {
+    name: "Onetime Photography",
+    logo: "/clientImages/OnetimePhotography.jpg",
+    feedback:
+      "A game-changer for our customer acquisition—our ROAS has never looked better.",
+  },
+  {
+    name: "Promobox",
+    logo: "/clientImages/promobox1.jpeg",
+    feedback:
+      "Data-driven marketing that actually delivers measurable bottom-line growth.",
+  },
+  {
+    name: "House of Tales",
+    logo: "/clientImages/Houseoftales.PNG",
+    feedback:
+      "Transformed our marketing funnel into a high-performance growth machine.",
+  },
 ];
 
 // Split data evenly into two distinct tracks for staggered directional flow
@@ -142,7 +160,7 @@ function TestimonialCard({ item }) {
       </div>
 
       {/* FEEDBACK COPY */}
-      <p className="text-gray-400 text-sm leading-relaxed mb-6 group-hover:text-gray-300 transition-colors duration-300 min-h-[64px]">
+      <p className="text-gray-400 text-sm leading-relaxed mb-6 group-hover:text-gray-300 transition-colors duration-300 min-h-16">
         “{item.feedback}”
       </p>
 
