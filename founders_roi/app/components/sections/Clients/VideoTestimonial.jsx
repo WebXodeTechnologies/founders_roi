@@ -50,7 +50,7 @@ export default function VideoTestimonials() {
   return (
     <section className="w-full bg-[#070707] text-white py-32 px-4 sm:px-6 lg:px-8 relative border-t border-neutral-900/80 overflow-hidden">
       {/* Background ambient gold/orange glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] bg-gradient-to-tr from-amber-500/5 via-orange-500/5 to-transparent blur-[180px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-125 bg-linear-to-tr from-amber-500/5 via-orange-500/5 to-transparent blur-[180px] pointer-events-none rounded-full" />
 
       {/* Section Header */}
       <div className="max-w-4xl mx-auto text-center mb-20 space-y-4 relative z-10">
@@ -60,7 +60,7 @@ export default function VideoTestimonials() {
         </div>
         <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-[1.15]">
           Hear It Directly From{" "}
-          <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-orange-500 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-orange-400 via-amber-400 to-orange-500 bg-clip-text text-transparent">
             Our Partners
           </span>
         </h2>
@@ -207,7 +207,7 @@ function TestimonialCard({ item }) {
         }`}
       >
         {!isFullscreen && (
-          <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-3xl blur-md opacity-10 group-hover/card:opacity-30 transition duration-500 pointer-events-none" />
+          <div className="absolute -inset-1 bg-linear-to-r from-orange-500 to-amber-500 rounded-3xl blur-md opacity-10 group-hover/card:opacity-30 transition duration-500 pointer-events-none" />
         )}
 
         <div
@@ -215,7 +215,7 @@ function TestimonialCard({ item }) {
           className={`relative overflow-hidden bg-neutral-950 shadow-inner cursor-pointer transition-all duration-300 ${
             isFullscreen
               ? "w-full h-full rounded-none"
-              : "rounded-2xl aspect-[9/16] w-full"
+              : "rounded-2xl aspect-9/16 w-full"
           }`}
         >
           <video
@@ -276,7 +276,7 @@ function TestimonialCard({ item }) {
             >
               <div className="w-full h-1 bg-white/10 rounded-full relative">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-orange-500 to-amber-500 absolute left-0 top-0"
+                  className="h-full rounded-full bg-linear-to-r from-orange-500 to-amber-500 absolute left-0 top-0"
                   style={{ width: `${progress}%` }}
                 />
               </div>
@@ -300,7 +300,7 @@ function TestimonialCard({ item }) {
       </div>
 
       {/* Testimonial Quote & Info Below */}
-      <div className="flex flex-col justify-between flex-grow">
+      <div className="flex flex-col justify-between grow">
         <div>
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-1 text-amber-400">
