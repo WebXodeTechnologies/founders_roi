@@ -26,7 +26,7 @@ const testimonialsData = [
   },
   {
     id: 2,
-    name: "Jeevan",
+    name: "Surendar",
     role: "Managing Director",
     company: "Twinkle Holidays",
     metric: "64% Reduction in CPL",
