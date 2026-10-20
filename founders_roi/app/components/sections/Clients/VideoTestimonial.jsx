@@ -16,7 +16,7 @@ import {
 const testimonialsData = [
   {
     id: 1,
-    name: "Rajesh Kumar",
+    name: "Santhosh",
     role: "Founder & CEO",
     company: "Capicture Studios",
     metric: "3.8x ROAS Generated",
@@ -26,8 +26,8 @@ const testimonialsData = [
   },
   {
     id: 2,
-    name: "Surendar",
-    role: "Managing Director",
+    name: "Surendharan",
+    role: "Founder & Managing Director",
     company: "Twinkle Holidays",
     metric: "64% Reduction in CPL",
     quote:
@@ -36,9 +36,9 @@ const testimonialsData = [
   },
   {
     id: 3,
-    name: "Prasaana",
-    role: "Managing Director",
-    company: "IFS Global",
+    name: "Prasanna",
+    role: "Founder & CEO",
+    company: "IFS [Infocus the studio]",
     metric: "4.2x Pipeline Growth",
     quote:
       "Their precision targeting and automated WhatsApp qualification funnels eliminated low-quality leads entirely. Our sales team closes high-ticket clients effortlessly.",
