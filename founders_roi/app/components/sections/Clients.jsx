@@ -19,7 +19,10 @@ const row1 = [
 ];
 
 const row2 = [
-  { name: "Hi Proteins", logo: "/clientimagebgremoved/Hiprotein-removebg-preview.png" },
+  {
+    name: "Hi Proteins",
+    logo: "/clientimagebgremoved/Hiprotein-removebg-preview.png",
+  },
   { name: "House of Memories", logo: "/clientImages/HouseofMemories.jpeg" },
   { name: "L & H", logo: "/clientimagebgremoved/L_H-removebg-preview.png" },
   { name: "Lexa Holidays", logo: "/clientImages/Lexa Holidays.jpeg" },
@@ -27,17 +30,30 @@ const row2 = [
   { name: "Splash Eventia", logo: "/clientImages/SplashEventia.jpg" },
   { name: "TH", logo: "/clientImages/TH.png" },
   { name: "Triberry Studios", logo: "/clientImages/triberrystudioslogo.png" },
-  { name: "Kamarajar College of Nursing", logo: "/clientImages/KSAnursing.jpeg" },
+  {
+    name: "Kamarajar College of Nursing",
+    logo: "/clientImages/KSAnursing.jpeg",
+  },
   { name: "Kamarajar College of Pharmacy", logo: "/clientImages/KSA.jpeg" },
-  { name: "Webxode Technologies", logo: "/clientImages/webxodelogocropped.png" },
-  { name: "Zero One Photography", logo: "/clientImages/ZeroOnePhotography.jpeg" },
+  {
+    name: "Webxode Technologies",
+    logo: "/clientImages/webxodelogocropped.png",
+  },
+  {
+    name: "Zero One Photography",
+    logo: "/clientImages/ZeroOnePhotography.jpeg",
+  },
   { name: "AK Photography", logo: "/clientImages/AKPhotography.png" },
   { name: "Aj Uday Clickography", logo: "/clientImages/AJClickography.png" },
   { name: "KSA group of Instituions", logo: "/clientImages/ksafnal.PNG" },
   { name: "KSA Maritime college", logo: "/clientImages/PKimsefnal.PNG" },
+  { name: "House of Tales", logo: "/clientImages/Houseoftales.PNG" },
+  {
+    name: "OneTime Photography",
+    logo: "/clientImages/OnetimePhotography.jpg",
+  },
+  { name: "PromoBox", logo: "/clientImages/promobox1.jpeg" },
 ];
-
-
 
 const loopRow1 = [...row1, ...row1, ...row1];
 const loopRow2 = [...row2, ...row2, ...row2];
@@ -49,7 +65,7 @@ export default function ClientsCarousel() {
   return (
     <section className="relative w-full py-20 sm:py-24 px-4 overflow-hidden select-none bg-black">
       {/* Background Structural Accent Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] rounded-full bg-linear-to-tr from-orange-500/5 via-transparent to-transparent blur-[180px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-225 h-125 rounded-full bg-linear-to-tr from-orange-500/5 via-transparent to-transparent blur-[180px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="text-center mb-24 flex flex-col items-center">
@@ -64,24 +80,56 @@ export default function ClientsCarousel() {
           </motion.div>
 
           <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl md:text-6xl leading-[1.15]">
-            Brands We’ve <span className="bg-linear-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">Delivered For</span>
+            Brands We’ve{" "}
+            <span className="bg-linear-to-r from-orange-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">
+              Delivered For
+            </span>
           </h2>
           <p className="mt-4 text-sm sm:text-base text-neutral-400 max-w-lg font-light leading-relaxed">
-            Powering fast-scaling startups and enterprises with high-impact, predictable growth systems.
+            Powering fast-scaling startups and enterprises with high-impact,
+            predictable growth systems.
           </p>
         </div>
 
         {/* MARQUEE CONTAINER */}
         <div className="relative w-full flex flex-col gap-10 py-20">
-          <div className="relative flex overflow-hidden cursor-pointer" onMouseEnter={() => setIsHoveredRow1(true)} onMouseLeave={() => setIsHoveredRow1(false)}>
-            <motion.div className="flex gap-10 shrink-0 pr-8" animate={{ x: ["0%", "-33.33%"] }} transition={{ duration: isHoveredRow1 ? 90 : 32, ease: "linear", repeat: Infinity }}>
-              {loopRow1.map((client, i) => <LargeInteractiveLogoCard key={`track1-${i}`} client={client} />)}
+          <div
+            className="relative flex overflow-hidden cursor-pointer"
+            onMouseEnter={() => setIsHoveredRow1(true)}
+            onMouseLeave={() => setIsHoveredRow1(false)}
+          >
+            <motion.div
+              className="flex gap-10 shrink-0 pr-8"
+              animate={{ x: ["0%", "-33.33%"] }}
+              transition={{
+                duration: isHoveredRow1 ? 90 : 32,
+                ease: "linear",
+                repeat: Infinity,
+              }}
+            >
+              {loopRow1.map((client, i) => (
+                <LargeInteractiveLogoCard key={`track1-${i}`} client={client} />
+              ))}
             </motion.div>
           </div>
 
-          <div className="relative flex w-full overflow-hidden cursor-pointer" onMouseEnter={() => setIsHoveredRow2(true)} onMouseLeave={() => setIsHoveredRow2(false)}>
-            <motion.div className="flex gap-10 shrink-0 pr-8 min-w-full" animate={{ x: ["-33.33%", "0%"] }} transition={{ duration: isHoveredRow2 ? 95 : 35, ease: "linear", repeat: Infinity }}>
-              {loopRow2.map((client, i) => <LargeInteractiveLogoCard key={`track2-${i}`} client={client} />)}
+          <div
+            className="relative flex w-full overflow-hidden cursor-pointer"
+            onMouseEnter={() => setIsHoveredRow2(true)}
+            onMouseLeave={() => setIsHoveredRow2(false)}
+          >
+            <motion.div
+              className="flex gap-10 shrink-0 pr-8 min-w-full"
+              animate={{ x: ["-33.33%", "0%"] }}
+              transition={{
+                duration: isHoveredRow2 ? 95 : 35,
+                ease: "linear",
+                repeat: Infinity,
+              }}
+            >
+              {loopRow2.map((client, i) => (
+                <LargeInteractiveLogoCard key={`track2-${i}`} client={client} />
+              ))}
             </motion.div>
           </div>
         </div>
@@ -106,10 +154,13 @@ function LargeInteractiveLogoCard({ client }) {
 
   return (
     <motion.div
-      className="w-72 h-60 sm:w-[350px] sm:h-50 perspective-[1000px]"
+      className="w-72 h-60 sm:w-87.5 sm:h-50 perspective-[1000px]"
       style={{ rotateX, rotateY }}
       onMouseMove={handleMouseMove}
-      onMouseLeave={() => { x.set(0); y.set(0); }}
+      onMouseLeave={() => {
+        x.set(0);
+        y.set(0);
+      }}
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >

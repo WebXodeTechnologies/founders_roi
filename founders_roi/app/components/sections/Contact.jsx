@@ -14,12 +14,23 @@ export default function Contact() {
     phone: "",
     location: "",
     service: "",
-    message: ""
+    message: "",
   });
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [status, setStatus] = useState({ loading: false, success: null, error: null });
-  const servicesList = ["Branding", "Consulting", "Tech", "Sales", "Marketing", "Other"];
+  const [status, setStatus] = useState({
+    loading: false,
+    success: null,
+    error: null,
+  });
+  const servicesList = [
+    "Branding",
+    "Consulting",
+    "Tech",
+    "Sales",
+    "Marketing",
+    "Other",
+  ];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -39,16 +50,26 @@ export default function Contact() {
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-    if (!serviceId || !templateId || !publicKey || templateId === "your_template_id_here") {
+    if (
+      !serviceId ||
+      !templateId ||
+      !publicKey ||
+      templateId === "your_template_id_here"
+    ) {
       setStatus({
         loading: false,
         success: null,
-        error: "Configuration Error: Please verify that all EmailJS keys (including Template ID) are configured in your env settings.",
+        error:
+          "Configuration Error: Please verify that all EmailJS keys (including Template ID) are configured in your env settings.",
       });
       return;
     }
 
-    console.log("Transmitting request using:", { serviceId, templateId, publicKey });
+    console.log("Transmitting request using:", {
+      serviceId,
+      templateId,
+      publicKey,
+    });
 
     // Construct parameters to map exactly to your EmailJS Template layout
     const templateParams = {
@@ -67,10 +88,14 @@ export default function Contact() {
         templateParams,
         {
           publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-        }
+        },
       );
 
-      setStatus({ loading: false, success: "Dossier sent successfully! We will connect within 24 hours.", error: null });
+      setStatus({
+        loading: false,
+        success: "Dossier sent successfully! We will connect within 24 hours.",
+        error: null,
+      });
 
       // Reset form fields cleanly
       setFormData({
@@ -80,29 +105,32 @@ export default function Contact() {
         phone: "",
         location: "",
         service: "",
-        message: ""
+        message: "",
       });
     } catch (err) {
       console.error("EmailJS Submission Failure:", err);
-      const errorMessage = err?.text || "Transmission error. Please verify parameters or contact us directly.";
+      const errorMessage =
+        err?.text ||
+        "Transmission error. Please verify parameters or contact us directly.";
       setStatus({
         loading: false,
         success: null,
-        error: `EmailJS Error: ${errorMessage}`
+        error: `EmailJS Error: ${errorMessage}`,
       });
     }
   };
 
   return (
-    <section id="contact-form" className="w-full bg-bg-primary text-white py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden select-none">
-
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-orange-500/3 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-500/2 blur-[150px] rounded-full pointer-events-none" />
+    <section
+      id="contact-form"
+      className="w-full bg-bg-primary text-white py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden select-none"
+    >
+      <div className="absolute top-1/4 left-1/4 w-150 h-150 bg-orange-500/3 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-125 h-125 bg-purple-500/2 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#141414_1px,transparent_1px),linear-gradient(to_bottom,#141414_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch relative z-10">
-
         {/* ================= LEFT COLUMN: MATCHING LIVE BORDER GLOW CARD ================= */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -140,7 +168,9 @@ export default function Contact() {
               </h2>
 
               <p className="text-neutral-400 font-light leading-relaxed text-sm sm:text-base max-w-xl">
-                Have an ambitious project in mind or want to scale your current operations? Complete the system dossier configuration, and our engineers will respond within 24 hours.
+                Have an ambitious project in mind or want to scale your current
+                operations? Complete the system dossier configuration, and our
+                engineers will respond within 24 hours.
               </p>
             </div>
 
@@ -154,8 +184,12 @@ export default function Contact() {
                   <FaPhoneAlt size={14} />
                 </div>
                 <div>
-                  <p className="text-xs text-neutral-500 font-medium uppercase tracking-wider">Direct Line</p>
-                  <span className="text-sm font-bold text-neutral-200 tracking-wide">+91-8754582502</span>
+                  <p className="text-xs text-neutral-500 font-medium uppercase tracking-wider">
+                    Direct Line
+                  </p>
+                  <span className="text-sm font-bold text-neutral-200 tracking-wide">
+                    +91-8754582502
+                  </span>
                 </div>
               </motion.div>
 
@@ -168,8 +202,12 @@ export default function Contact() {
                   <FaEnvelope size={14} />
                 </div>
                 <div>
-                  <p className="text-xs text-neutral-500 font-medium uppercase tracking-wider">Secure Email</p>
-                  <span className="text-sm font-bold text-neutral-200 tracking-wide">foundersroi.in@gmail.com</span>
+                  <p className="text-xs text-neutral-500 font-medium uppercase tracking-wider">
+                    Secure Email
+                  </p>
+                  <span className="text-sm font-bold text-neutral-200 tracking-wide">
+                    foundersroi.in@gmail.com
+                  </span>
                 </div>
               </motion.div>
 
@@ -187,7 +225,7 @@ export default function Contact() {
                   </p>
 
                   <div className="flex flex-wrap gap-2">
-                    {["Chennai", "Coimbatore", "Salem", "Namakkal"].map((city) => (
+                    {["Chennai", "Coimbatore", "Salem"].map((city) => (
                       <div
                         key={city}
                         className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-neutral-900 bg-neutral-950/60 text-xs font-semibold text-neutral-300 backdrop-blur-md transition-all duration-300 hover:border-orange-500/30 hover:bg-neutral-900/40 cursor-default group"
@@ -216,8 +254,10 @@ export default function Contact() {
         >
           <div className="absolute top-0 left-1/4 right-1/4 h-px bg-linear-to-r from-transparent via-orange-500/30 to-transparent" />
 
-          <form onSubmit={handleSubmit} className="space-y-6 relative z-10 h-full flex flex-col justify-between">
-
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6 relative z-10 h-full flex flex-col justify-between"
+          >
             <div className="space-y-6">
               {/* NAME GRID BLOCK */}
               <div className="grid sm:grid-cols-2 gap-6">
@@ -308,12 +348,17 @@ export default function Contact() {
                 </label>
                 <div
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className={`w-full px-4 py-4 rounded-xl bg-neutral-900/80 border ${isDropdownOpen ? 'border-orange-500 bg-black' : 'border-neutral-700'} flex items-center justify-between cursor-pointer transition-all duration-300 shadow-inner`}
+                  className={`w-full px-4 py-4 rounded-xl bg-neutral-900/80 border ${isDropdownOpen ? "border-orange-500 bg-black" : "border-neutral-700"} flex items-center justify-between cursor-pointer transition-all duration-300 shadow-inner`}
                 >
-                  <span className={`text-base ${formData.service ? 'text-white font-medium' : 'text-neutral-400'}`}>
+                  <span
+                    className={`text-base ${formData.service ? "text-white font-medium" : "text-neutral-400"}`}
+                  >
                     {formData.service || "Select an expert service vertical..."}
                   </span>
-                  <ChevronDown size={18} className={`text-neutral-400 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-orange-400' : ''}`} />
+                  <ChevronDown
+                    size={18}
+                    className={`text-neutral-400 transition-transform duration-300 ${isDropdownOpen ? "rotate-180 text-orange-400" : ""}`}
+                  />
                 </div>
 
                 <AnimatePresence>
@@ -382,10 +427,14 @@ export default function Contact() {
               {status.loading ? (
                 <>
                   <Loader2 className="animate-spin" size={18} />
-                  <span className="relative z-10 uppercase tracking-wider text-sm">Transmitting Dossier...</span>
+                  <span className="relative z-10 uppercase tracking-wider text-sm">
+                    Transmitting Dossier...
+                  </span>
                 </>
               ) : (
-                <span className="relative z-10 uppercase tracking-wider text-sm">Deploy Growth Request</span>
+                <span className="relative z-10 uppercase tracking-wider text-sm">
+                  Deploy Growth Request
+                </span>
               )}
             </motion.button>
           </form>

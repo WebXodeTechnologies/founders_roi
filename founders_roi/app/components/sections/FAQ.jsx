@@ -226,7 +226,7 @@ export default function FAQ() {
           </div>
 
           <a
-            href="#contact"
+            href="/contact"
             className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-xl font-bold text-black bg-linear-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 transition-all duration-300 shadow-[0_4px_25px_rgba(245,158,11,0.35)] hover:shadow-[0_6px_30px_rgba(245,158,11,0.5)] cursor-pointer text-sm tracking-wide uppercase shrink-0"
           >
             Book Strategy Call
