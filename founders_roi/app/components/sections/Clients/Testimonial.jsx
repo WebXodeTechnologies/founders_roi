@@ -142,7 +142,7 @@ function TestimonialCard({ item }) {
       </div>
 
       {/* FEEDBACK COPY */}
-      <p className="text-gray-400 text-sm leading-relaxed mb-6 group-hover:text-gray-300 transition-colors duration-300 min-h-[64px]">
+      <p className="text-gray-400 text-sm leading-relaxed mb-6 group-hover:text-gray-300 transition-colors duration-300 min-h-16">
         “{item.feedback}”
       </p>
 
